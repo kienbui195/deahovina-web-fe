@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-700 pt-[30px] text-md">
+    <footer className="bg-blue-700 pt-[30px] text-md mt-[30px]">
       <div className="grid md:grid-cols-3 dhv-container">
         <div className="text-white font-semibold mb-[28px]">
           <div className="uppercase text-white font-semibold">
@@ -121,7 +121,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex text-white h-[100px] flex-row h-full text-md font-semibold justify-center items-center bg-slate-500">
+      <div className="flex text-white h-[100px] flex-row text-md font-semibold justify-center items-center bg-slate-500">
         Copyright 2024 ©. Công ty Cổ Phần Giải Pháp Kỹ Thuật Ấn Tượng. GPDKKD:
         0309893542 do sở KH & ĐT TP.HCM cấp ngày 30/03/2010
       </div>

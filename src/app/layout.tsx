@@ -32,8 +32,10 @@ export default function RootLayout({
       >
         <StoreProvider>
           <Header />
-          {children}
-          <Footer />
+          <div className="">
+            {children}
+            <Footer />
+          </div>
         </StoreProvider>
       </body>
     </html>
