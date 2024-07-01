@@ -3,7 +3,7 @@ import * as React from "react";
 import { useSelector } from "react-redux";
 
 const useGetLabel = () => {
-  const labelLang = useSelector((state: RootState) => state.contentLang);
+  const labelLang = useSelector((state: RootState) => state.contentLang.content);
 
   const getLabel = (key: string): string => {
     return `${

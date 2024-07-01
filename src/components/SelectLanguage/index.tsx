@@ -15,32 +15,34 @@ import {
   VietnamFlagIcon,
 } from "@/lib/svgExport";
 import useGetLabel from "@/hooks/useGetLabel";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { chooseLang } from "@/lib/features/multiContentSlice";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { RootState } from "@/lib/store";
+import { TLang } from "@/dataTypes";
 
 const SelectLanguage = () => {
   const { getLabel } = useGetLabel();
   const dispatch = useDispatch();
   const queryLang = useSearchParams().get("_lang");
-  const [lang, setLang] = React.useState<string>(queryLang || "vi");
+  const settingLang = useSelector((state: RootState) => state.contentLang.lang)
+  const router = useRouter()
 
   React.useEffect(() => {
-    dispatch(
-      chooseLang(
-        lang === "vi"
-          ? "vi"
-          : lang === "en"
-          ? "en"
-          : lang === "kr"
-          ? "kr"
-          : "vi"
-      )
-    );
-  }, [lang, queryLang]);
+    if (!queryLang) return;
+    dispatch(chooseLang(queryLang as TLang));
+    localStorage.setItem("DHV_LANG", queryLang);
+  }, [queryLang]);
 
   return (
-    <Select value={lang} onValueChange={(val) => setLang(val)}>
+    <Select
+      value={settingLang}
+      onValueChange={(val) => {
+        dispatch(chooseLang((val as TLang)));
+        localStorage.setItem("DHV_LANG", val);
+        router.push(`/?_lang=${val}`)
+      }}
+    >
       <SelectTrigger className="w-[160px]">
         <SelectValue placeholder={getLabel("select.language.placeholder")} />
       </SelectTrigger>
