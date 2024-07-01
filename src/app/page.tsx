@@ -1,10 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Home from "./HomePage";
+import NotFound from "./NotFound";
 
 const IndexPage = () => {
-  return (
-    <Home/>
-  )
-}
+  return <Home />;
+};
 
-export default IndexPage
+export default IndexPage;

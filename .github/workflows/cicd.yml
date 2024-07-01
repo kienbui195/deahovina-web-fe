@@ -1,0 +1,32 @@
+name: Remote ssh command (for master branch)
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  build:
+    name: Build ET_Wishlist environment development
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using password
+        uses: hoadxit/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.DEV_SSH_HOST }}
+          username: ${{ secrets.DEV_USERNAME }}
+          key: ${{ secrets.DEV_SSH_KEY }}
+          port: ${{ secrets.DEV_PORT }}
+          script: |
+            whoami
+            cd ~/KienBQ/deahovina-fe
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/github_key
+            git checkout .
+            git pull
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh  
+            npm install
+            rm -rf .env
+            echo "NEXT_PUBLIC_BE=https://admin.kiendev.click/api" >> .env
+            echo "NEXT_PUBLIC_UPLOAD=https://admin.kiendev.click" >> .env
+            npm run build
+            pm2 restart FirstProj

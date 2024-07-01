@@ -17,6 +17,7 @@ import { Button } from "../ui/button";
 import { Search as SearchIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import useGetLabel from "@/hooks/useGetLabel";
+import NotFound from "@/app/NotFound";
 
 const formSchema = z.object({
   keyword: z.string(),
@@ -30,7 +31,7 @@ const Search = ({ className }: { className?: string }) => {
   const isClient = React.useMemo(() => {
     return typeof window === "object";
   }, []);
-  const inputRef = React.useRef<HTMLInputElement>(null)
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -83,4 +84,12 @@ const Search = ({ className }: { className?: string }) => {
   );
 };
 
-export default Search;
+const SearchBar = ({className}:{className?: string;}) => {
+  return (
+    <React.Suspense fallback={<NotFound />}>
+      <Search className={className}/>
+    </React.Suspense>
+  );
+};
+
+export default SearchBar;
