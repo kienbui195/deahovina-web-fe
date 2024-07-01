@@ -20,7 +20,6 @@ import { chooseLang } from "@/lib/features/multiContentSlice";
 import { useRouter, useSearchParams } from "next/navigation";
 import { RootState } from "@/lib/store";
 import { TLang } from "@/dataTypes";
-import NotFound from "@/app/NotFound";
 
 const SelectLanguage = () => {
   const { getLabel } = useGetLabel();

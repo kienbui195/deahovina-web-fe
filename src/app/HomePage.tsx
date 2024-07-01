@@ -15,6 +15,7 @@ import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 import Swal from "sweetalert2";
 import SectionInfo from "@/components/SectionInfo";
+import SectionNews from "@/components/SectionNews";
 
 export default function Home() {
   return (
@@ -45,9 +46,12 @@ export default function Home() {
       <section className="mt-[30px]">
         <ProductCarouselWithCate nameCate="máy tính công nghiệp, server" />
         <ProductCarouselWithCate nameCate="CLOUD, MQTT GATEWAY" />
+        <Image alt=""src={DefaultThumbnail2} className="w-full h-[400px] border mt-[30px]"/>
         <ProductCarouselWithCate nameCate="SERIAL TO ETHERNET CONVERTERS" />
         <ProductCarouselWithCate nameCate="CẢM BIẾN SENSOR" />
+        <Image alt=""src={DefaultThumbnail2} className="w-full h-[400px] border mt-[30px]"/>
         <SectionInfo/>
+        <SectionNews/>
       </section>
     </main>
   );
