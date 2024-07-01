@@ -73,7 +73,7 @@ const SelectLanguage = () => {
 
 const SelectLanguageDropdown = () => {
   return (
-    <React.Suspense fallback={<NotFound/>}>
+    <React.Suspense fallback={<React.Fragment/>}>
       <SelectLanguage/>
     </React.Suspense>
   )

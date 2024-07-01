@@ -86,7 +86,7 @@ const Search = ({ className }: { className?: string }) => {
 
 const SearchBar = ({className}:{className?: string;}) => {
   return (
-    <React.Suspense fallback={<NotFound />}>
+    <React.Suspense fallback={<React.Fragment />}>
       <Search className={className}/>
     </React.Suspense>
   );
