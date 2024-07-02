@@ -61,4 +61,36 @@ export const vi: IMultiLangContentValue[] = [
     key: "filters.byPrice.max",
     content: "Max",
   },
+  {
+    key: "navigation.home.label",
+    content: "Trang chủ",
+  },
+  {
+    key: "navigation.products.label",
+    content: "Sản phẩm",
+  },
+  {
+    key: "navigation.solutions.label",
+    content: "Giải pháp",
+  },
+  {
+    key: "navigation.services.label",
+    content: "Dịch vụ",
+  },
+  {
+    key: "navigation.about.label",
+    content: "Về chúng tôi",
+  },
+  {
+    key: "navigation.solutions.solar",
+    content: "Năng lượng mặt trời",
+  },
+  {
+    key: "navigation.solutions.power.distribution",
+    content: "Giải pháp phân phối điện năng",
+  },
+  {
+    key: "navigation.solutions.electrical.automation",
+    content: "Giải pháp điện tự động hóa",
+  },
 ];

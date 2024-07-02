@@ -53,7 +53,7 @@ const Search = ({ className }: { className?: string }) => {
   }, [keyword]);
 
   return (
-    <div className={cn(["flex-1", className])}>
+    <div className={cn(["", className])}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="">
           <FormField
@@ -66,10 +66,10 @@ const Search = ({ className }: { className?: string }) => {
                     <Input
                       placeholder={getLabel("input.search.placeholder")}
                       {...field}
-                      className={cn(["h-8 w-full"])}
+                      className={cn(["h-[45px] w-full flex-1"])}
                       ref={inputRef}
                     />
-                    <Button type="submit" className="p-2 h-8 w-8">
+                    <Button type="submit" className="p-2 h-[45px] w-[45px] bg-blue-700 hover:bg-blue-600">
                       <SearchIcon className="w-6 h-6" />
                     </Button>
                   </div>

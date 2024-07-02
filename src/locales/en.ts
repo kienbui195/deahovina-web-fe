@@ -50,15 +50,35 @@ export const en: IMultiLangContentValue[] = [
     content: "filter by price",
   },
   {
-    key: "filters.byPrice.button",
-    content: "Filter",
+    key: "navigation.solutions.solar",
+    content: "Solar power",
   },
   {
-    key: "filters.byPrice.min",
-    content: "Min",
+    key: "navigation.solutions.power.distribution",
+    content: "Power distribution solutions",
   },
   {
-    key: "filters.byPrice.max",
-    content: "Max",
+    key: "navigation.solutions.electrical.automation",
+    content: "Electrical automation solutions",
+  },
+  {
+    key: "navigation.home.label",
+    content: "Home",
+  },
+  {
+    key: "navigation.products.label",
+    content: "Products",
+  },
+  {
+    key: "navigation.solutions.label",
+    content: "Solutions",
+  },
+  {
+    key: "navigation.services.label",
+    content: "Service",
+  },
+  {
+    key: "navigation.about.label",
+    content: "About us",
   },
 ];

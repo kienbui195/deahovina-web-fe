@@ -25,8 +25,8 @@ const SelectLanguage = () => {
   const { getLabel } = useGetLabel();
   const dispatch = useDispatch();
   const queryLang = useSearchParams().get("_lang");
-  const settingLang = useSelector((state: RootState) => state.contentLang.lang)
-  const router = useRouter()
+  const settingLang = useSelector((state: RootState) => state.contentLang.lang);
+  const router = useRouter();
 
   React.useEffect(() => {
     if (!queryLang) return;
@@ -38,32 +38,26 @@ const SelectLanguage = () => {
     <Select
       value={settingLang}
       onValueChange={(val) => {
-        dispatch(chooseLang((val as TLang)));
+        dispatch(chooseLang(val as TLang));
         localStorage.setItem("DHV_LANG", val);
-        router.push(`?_lang=${val}`)
+        router.push(`?_lang=${val}`);
       }}
     >
-      <SelectTrigger className="w-[160px]">
-        <SelectValue placeholder={getLabel("select.language.placeholder")} />
+      <SelectTrigger className="w-fit bg-blue-700 border-blue-700 !border-none !outline-none active:!border-none">
+        <SelectValue
+          placeholder={getLabel("select.language.placeholder")}
+          className="focus:border-none border-none outline-none active:!border-none"
+        />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="w-fit bg-blue-700">
         <SelectItem value="vi">
-          <div className="flex flex-row items-center gap-2">
-            <Image src={VietnamFlagIcon} alt="" className="w-6 h-6" />
-            <div>{getLabel("select.language.label.vi")}</div>
-          </div>
+          <Image src={VietnamFlagIcon} alt="" className="w-6 h-6 mr-2" />
         </SelectItem>
         <SelectItem value="en">
-          <div className="flex flex-row items-center gap-2">
-            <Image src={EnglishFlagIcon} alt="" className="w-6 h-6" />
-            <div>{getLabel("select.language.label.en")}</div>
-          </div>
+          <Image src={EnglishFlagIcon} alt="" className="w-6 h-6 mr-2" />
         </SelectItem>
         <SelectItem value="kr">
-          <div className="flex flex-row items-center gap-2">
-            <Image src={KoreaFlagIcon} alt="" className="w-6 h-6" />
-            <div>{getLabel("select.language.label.kr")}</div>
-          </div>
+          <Image src={KoreaFlagIcon} alt="" className="w-6 h-6 mr-2" />
         </SelectItem>
       </SelectContent>
     </Select>
@@ -72,10 +66,10 @@ const SelectLanguage = () => {
 
 const SelectLanguageDropdown = () => {
   return (
-    <React.Suspense fallback={<React.Fragment/>}>
-      <SelectLanguage/>
+    <React.Suspense fallback={<React.Fragment />}>
+      <SelectLanguage />
     </React.Suspense>
-  )
-}
+  );
+};
 
-export default SelectLanguageDropdown
+export default SelectLanguageDropdown;

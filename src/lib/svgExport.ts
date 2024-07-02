@@ -4,6 +4,7 @@ import KoreaFlagIcon from '@/assets/svg/kr-flag.svg'
 import DefaultThumbnail from '@/assets/svg/DefaultImage.svg'
 import DefaultThumbnail2 from '@/assets/svg/default-thumbnail.svg'
 import DefaultAvatar from '@/assets/svg/default-avatar.svg.svg'
+import SquareLogo from '@/assets/images/square-logo.png'
 
 export {
   VietnamFlagIcon,
@@ -11,5 +12,6 @@ export {
   KoreaFlagIcon,
   DefaultAvatar,
   DefaultThumbnail,
-  DefaultThumbnail2
+  DefaultThumbnail2,
+  SquareLogo
 }
