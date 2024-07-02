@@ -40,7 +40,7 @@ const SelectLanguage = () => {
       onValueChange={(val) => {
         dispatch(chooseLang((val as TLang)));
         localStorage.setItem("DHV_LANG", val);
-        router.push(`/?_lang=${val}`)
+        router.push(`?_lang=${val}`)
       }}
     >
       <SelectTrigger className="w-[160px]">

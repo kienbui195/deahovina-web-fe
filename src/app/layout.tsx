@@ -32,7 +32,7 @@ export default function RootLayout({
       >
         <StoreProvider>
           <Header />
-          <div className="">
+          <div className="mt-10">
             {children}
             <Footer />
           </div>

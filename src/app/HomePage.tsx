@@ -19,7 +19,7 @@ import SectionNews from "@/components/SectionNews";
 
 export default function Home() {
   return (
-    <main className="dhv-container flex flex-col items-stretch mt-[140px]">
+    <main className="sm:dhv-container dhv-container-sm flex flex-col items-stretch mt-[140px]">
       <Carousel
         className="max-h-[400px] border"
         opts={{
