@@ -1,6 +1,5 @@
-import React, { Suspense } from "react";
+import React from "react";
 import Home from "./HomePage";
-import NotFound from "./NotFound";
 
 const IndexPage = () => {
   return <Home />;

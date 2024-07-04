@@ -13,10 +13,22 @@ import Link from "next/link";
 import useGetLabel from "@/hooks/useGetLabel";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
+import { cn } from "@/lib/utils";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "../ui/collapsible";
+import { Button } from "../ui/button";
+import { ChevronDown } from "lucide-react";
 
-const MenuNavigation = () => {
+const MenuNavigation = ({
+  direction = "horizontal",
+}: {
+  direction?: "horizontal" | "vertical";
+}) => {
   const { getLabel } = useGetLabel();
-  const lang = useSelector((state: RootState) => state.contentLang.lang)
+  const lang = useSelector((state: RootState) => state.contentLang.lang);
   const SOLUTIONS = React.useMemo(() => {
     return [
       {
@@ -33,10 +45,11 @@ const MenuNavigation = () => {
       },
     ];
   }, [lang]);
+  const [collapSolutions, setCollapSolution] = React.useState<boolean>(false);
 
-  return (
-    <NavigationMenu>
-      <NavigationMenuList className="gap-4 text-md ">
+  return direction === "horizontal" ? (
+    <NavigationMenu className="md:flex hidden">
+      <NavigationMenuList className={cn(["gap-4 text-md"])}>
         <NavigationMenuItem>
           <Link href={"/"}>
             <NavigationMenuLink className="uppercase font-semibold">
@@ -75,7 +88,7 @@ const MenuNavigation = () => {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href={"/solutions"}>
+          <Link href={"/services"}>
             <NavigationMenuLink className="uppercase font-semibold">
               {getLabel("navigation.services.label")}
             </NavigationMenuLink>
@@ -90,6 +103,58 @@ const MenuNavigation = () => {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
+  ) : (
+    <nav className="flex flex-col gap-2 uppercase font-bold my-4">
+      <Link href={"/"}>
+        <div className="px-4 py-2 w-full">
+          {getLabel("navigation.home.label")}
+        </div>
+      </Link>
+      <Link href={"/#"}>
+        <div className="px-4 py-2 w-full">
+          {getLabel("navigation.products.label")}
+        </div>
+      </Link>
+      <Collapsible
+        open={collapSolutions}
+        onOpenChange={(val) => {
+          setCollapSolution(val);
+        }}
+      >
+        <CollapsibleTrigger asChild>
+          <div className="px-4 py-2 flex flex-row items-center gap-4">
+            <div>{getLabel("navigation.solutions.label")}</div>
+            <ChevronDown
+              className={cn([
+                "w-4 h-4  transition-all duration-200",
+                collapSolutions ? "rotate-180" : "",
+              ])}
+            />
+          </div>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <div className="pl-4 gap-2 flex flex-col ml-3">
+            {SOLUTIONS.map((item, idx) => {
+              return (
+                <Link key={idx} href={item.href}>
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
+      <Link href={"/services"}>
+        <div className="px-4 py-2 w-full">
+          {getLabel("navigation.services.label")}
+        </div>
+      </Link>
+      <Link href={"/about"}>
+        <div className="px-4 py-2 w-full">
+          {getLabel("navigation.about.label")}
+        </div>
+      </Link>
+    </nav>
   );
 };
 

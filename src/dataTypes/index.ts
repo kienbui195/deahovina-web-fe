@@ -10,3 +10,13 @@ export interface IMultiLangContentState {
   en: IMultiLangContentValue[],
   kr: IMultiLangContentValue[]
 }
+
+export interface IGlobalData {
+  top_banner: ITopBanner[]
+}
+
+export interface ITopBanner {
+  id: number;
+  link_on_click: string;
+  url: string;
+}

@@ -4,10 +4,7 @@ import Image from "next/image";
 import * as React from "react";
 import Search from "../Search";
 import SelectLanguage from "../SelectLanguage";
-import { DefaultThumbnail2, SquareLogo } from "@/lib/svgExport";
-import CategoryNavigation from "../CategoryNavigation";
-import { Button } from "../ui/button";
-import useGetLabel from "@/hooks/useGetLabel";
+import { SquareLogo } from "@/lib/svgExport";
 import SideBar from "./SideBar";
 import { cn } from "@/lib/utils";
 import useIsAtTop from "@/hooks/useIsAtTop";
@@ -17,7 +14,6 @@ import Link from "next/link";
 import MenuNavigation from "../MenuNavigation";
 
 const Header = () => {
-  const { getLabel } = useGetLabel();
   const isNearTop = useIsAtTop();
   const isScrollDown = useScrollDirection();
 
@@ -32,7 +28,7 @@ const Header = () => {
     >
       <div
         className={cn([
-          "w-full bg-blue-700 h-10 transition-all duration-200 items-end",
+          "w-full bg-blue-700 h-10 transition-all duration-200 items-end !hidden md:!flex",
           !isScrollDown && isNearTop ? "flex" : "hidden",
         ])}
       >
@@ -49,18 +45,21 @@ const Header = () => {
             <Mail className="w-4 h-4" />
             <div>daehovina@gmail.com</div>
           </Link>
-          <SelectLanguage />
+          <SelectLanguage
+            backgroundColor="bg-blue-700 hover:bg-blue-600"
+            bgContentColor="bg-blue-700"
+          />
         </div>
       </div>
       <div className="bg-white h-full border-b border-slate-200">
-        <div className="sm:dhv-container dhv-container-sm h-full flex items-center sm:justify-between m-auto gap-2 justify-around">
+        <div className="sm:dhv-container dhv-container-sm h-full flex items-center justify-between m-auto gap-2">
           <div className="flex flex-row gap-2 items-center">
             <SideBar className="sm:hidden flex" />
             <Image
               alt=""
               src={SquareLogo}
               className={cn([
-                "w-fit object-contain transition-all duration-200",
+                "w-fit object-contain transition-all duration-200 md:flex hidden",
                 !isNearTop ? "h-[70px]" : "h-[90px]",
               ])}
               width={0}
@@ -68,7 +67,24 @@ const Header = () => {
               sizes="100vw"
             />
           </div>
-          <MenuNavigation/>
+          <Image
+            alt=""
+            src={SquareLogo}
+            className={cn([
+              "w-fit object-contain transition-all duration-200 md:hidden flex",
+              !isNearTop ? "h-[70px]" : "h-[90px]",
+            ])}
+            width={0}
+            height={0}
+            sizes="100vw"
+          />
+          <MenuNavigation />
+          <div className="md:hidden flex">
+            <SelectLanguage
+              backgroundColor="bg-transparent"
+              bgContentColor="bg-white"
+            />
+          </div>
           <Search className="max-w-[380px] sm:flex hidden ml-10" />
         </div>
       </div>

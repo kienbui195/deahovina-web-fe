@@ -1,58 +1,50 @@
 "use client";
 
 import ProductCarouselWithCate from "@/components/ProductCarouselWithCate";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { DefaultThumbnail, DefaultThumbnail2 } from "@/lib/svgExport";
-import Image from "next/image";
-import Autoplay from "embla-carousel-autoplay";
-import Swal from "sweetalert2";
 import SectionInfo from "@/components/SectionInfo";
 import SectionNews from "@/components/SectionNews";
+import { IGlobalData, ITopBanner } from "@/dataTypes";
+import { useEffect, useState } from "react";
+import TopBanner from "@/components/TopBanner";
+import apis from "@/apis";
+import SectionSolution from "@/components/SolutionSection";
 
 export default function Home() {
+  const [topBanner, setTopBanner] = useState<ITopBanner[]>([]);
+
+  const handleGetGlobal = async () => {
+    await apis.getGlobalData().then((res) => {
+      const { attributes } = res.data.data;
+      const data: IGlobalData = {
+        top_banner: attributes.top_banner.reduce((acc: any[], _item: any) => {
+          const { id, link_on_click, image } = _item;
+
+          acc.push({
+            id,
+            link_on_click,
+            url: image.data.attributes.url,
+          });
+          return acc;
+        }, []),
+      };
+      setTopBanner(data.top_banner as ITopBanner[]);
+    });
+  };
+
+  useEffect(() => {
+    handleGetGlobal();
+  }, []);
+
   return (
-    <main className="sm:dhv-container dhv-container-sm flex flex-col items-stretch mt-[140px]">
-      <Carousel
-        className="max-h-[400px] border"
-        opts={{
-          loop: true,
-        }}
-        plugins={[Autoplay({ delay: 5000 })]}
-      >
-        <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index} className="cursor-pointer">
-              <div className="p-1 w-full flex justify-center">
-                <Image
-                  alt=""
-                  src={DefaultThumbnail2}
-                  className=" object-cover max-h-[400px]"
-                />
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-      <section className="mt-[30px]">
-        <ProductCarouselWithCate nameCate="máy tính công nghiệp, server" />
-        <ProductCarouselWithCate nameCate="CLOUD, MQTT GATEWAY" />
-        <Image alt=""src={DefaultThumbnail2} className="w-full h-[400px] border mt-[30px]"/>
-        <ProductCarouselWithCate nameCate="SERIAL TO ETHERNET CONVERTERS" />
-        <ProductCarouselWithCate nameCate="CẢM BIẾN SENSOR" />
-        <Image alt=""src={DefaultThumbnail2} className="w-full h-[400px] border mt-[30px]"/>
-        <SectionInfo/>
-        <SectionNews/>
-      </section>
+    <main className="flex flex-col items-stretch">
+      <TopBanner data={topBanner} />
+      <SectionSolution />
+      <div className="sm:dhv-container dhv-container-sm">
+        <section className="mt-[30px]">
+          <ProductCarouselWithCate nameCate="máy tính công nghiệp, server" />
+          <ProductCarouselWithCate nameCate="CLOUD, MQTT GATEWAY" />
+        </section>
+      </div>
     </main>
   );
 }

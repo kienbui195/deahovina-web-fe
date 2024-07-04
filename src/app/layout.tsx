@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Poppins as FontSans } from "next/font/google";
+import { Roboto as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import StoreProvider from "./StoreProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
+import NotFound from "./NotFound";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -13,11 +15,11 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Dea Ho Vina",
+  title: "DEAHO VINA",
   description: "",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -32,8 +34,8 @@ export default function RootLayout({
       >
         <StoreProvider>
           <Header />
-          <div className="mt-10">
-            {children}
+          <div>
+            <Suspense fallback={<NotFound />}>{children}</Suspense>
             <Footer />
           </div>
         </StoreProvider>

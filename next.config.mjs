@@ -2,9 +2,13 @@
 
 const nextConfig = {
   images: {
-    domains: ["127.0.0.1"],
     loader: "default",
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost'
+      }
+    ],
   },
   reactStrictMode: false,
 };
