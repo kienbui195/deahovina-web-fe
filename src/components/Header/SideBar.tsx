@@ -15,6 +15,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
 import MenuNavigation from "../MenuNavigation";
+import SearchBar from "../Search";
 
 const SideBar = ({ className }: { className?: string }) => {
   return (
@@ -28,6 +29,9 @@ const SideBar = ({ className }: { className?: string }) => {
         <SheetHeader>
           <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
+        <div className="mt-20">
+          <SearchBar />
+        </div>
         <div>
           <MenuNavigation direction="vertical" />
         </div>

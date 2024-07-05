@@ -39,7 +39,7 @@ export default function Home() {
     <main className="flex flex-col items-stretch">
       <TopBanner data={topBanner} />
       <SectionSolution />
-      <div className="sm:dhv-container dhv-container-sm">
+      <div className="lg:dhv-container dhv-container-sm">
         <section className="mt-[30px]">
           <ProductCarouselWithCate nameCate="máy tính công nghiệp, server" />
           <ProductCarouselWithCate nameCate="CLOUD, MQTT GATEWAY" />

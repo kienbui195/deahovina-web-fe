@@ -48,7 +48,7 @@ const MenuNavigation = ({
   const [collapSolutions, setCollapSolution] = React.useState<boolean>(false);
 
   return direction === "horizontal" ? (
-    <NavigationMenu className="md:flex hidden">
+    <NavigationMenu className="md:flex-wrap md:flex hidden">
       <NavigationMenuList className={cn(["gap-4 text-md"])}>
         <NavigationMenuItem>
           <Link href={"/"}>
@@ -104,16 +104,12 @@ const MenuNavigation = ({
       </NavigationMenuList>
     </NavigationMenu>
   ) : (
-    <nav className="flex flex-col gap-2 uppercase font-bold my-4">
-      <Link href={"/"}>
-        <div className="px-4 py-2 w-full">
-          {getLabel("navigation.home.label")}
-        </div>
+    <div className="uppercase font-bold my-8">
+      <Link href={"/"} className="pl-4 py-2 block w-fit">
+        {getLabel("navigation.home.label")}
       </Link>
-      <Link href={"/#"}>
-        <div className="px-4 py-2 w-full">
-          {getLabel("navigation.products.label")}
-        </div>
+      <Link href={"/#"} className="pl-4 py-2 block w-fit">
+        {getLabel("navigation.products.label")}
       </Link>
       <Collapsible
         open={collapSolutions}
@@ -122,21 +118,21 @@ const MenuNavigation = ({
         }}
       >
         <CollapsibleTrigger asChild>
-          <div className="px-4 py-2 flex flex-row items-center gap-4">
-            <div>{getLabel("navigation.solutions.label")}</div>
+          <span className="px-4 py-2 flex flex-row items-center gap-4 cursor-pointer w-fit">
+            <span>{getLabel("navigation.solutions.label")}</span>
             <ChevronDown
               className={cn([
                 "w-4 h-4  transition-all duration-200",
                 collapSolutions ? "rotate-180" : "",
               ])}
             />
-          </div>
+          </span>
         </CollapsibleTrigger>
         <CollapsibleContent>
-          <div className="pl-4 gap-2 flex flex-col ml-3">
+          <div className="pl-4 gap-2 flex flex-col ml-3 ">
             {SOLUTIONS.map((item, idx) => {
               return (
-                <Link key={idx} href={item.href}>
+                <Link key={idx} href={item.href} className="block w-fit">
                   {item.label}
                 </Link>
               );
@@ -144,17 +140,13 @@ const MenuNavigation = ({
           </div>
         </CollapsibleContent>
       </Collapsible>
-      <Link href={"/services"}>
-        <div className="px-4 py-2 w-full">
-          {getLabel("navigation.services.label")}
-        </div>
+      <Link href={"/services"} className="pl-4 py-2 block w-fit">
+        {getLabel("navigation.services.label")}
       </Link>
-      <Link href={"/about"}>
-        <div className="px-4 py-2 w-full">
-          {getLabel("navigation.about.label")}
-        </div>
+      <Link href={"/about"} className="pl-4 py-2 block w-fit">
+        {getLabel("navigation.about.label")}
       </Link>
-    </nav>
+    </div>
   );
 };
 

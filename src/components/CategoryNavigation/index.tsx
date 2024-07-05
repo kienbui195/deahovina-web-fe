@@ -155,7 +155,7 @@ ListItem.displayName = "ListItem";
 const CategoryNavigation = () => {
   return (
     <div className="bg-blue-700 text-white py-4 !m-auto">
-      <NavigationMenu className="sm:flex hidden w-full m-auto">
+      <NavigationMenu className="lg:flex hidden w-full m-auto">
         <NavigationMenuList className="font-bold text-xs uppercase justify-center flex-wrap gap-4 items-center">
           {MenuItem.map((_menu, idx) => {
             return (
@@ -164,7 +164,7 @@ const CategoryNavigation = () => {
                   <React.Fragment>
                     <NavigationMenuTrigger>{_menu.title}</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      <ul className="grid w-[400px] gap-3 p-4 lg:w-[500px] lg:grid-cols-2 lg:w-[600px]">
                         {_menu.children.map((_child, _idx) => {
                           return <ListItem />;
                         })}
@@ -188,7 +188,7 @@ const CategoryNavigation = () => {
           })}
         </NavigationMenuList>
       </NavigationMenu>
-      <div className="w-full sm:hidden flex px-4">
+      <div className="w-full lg:hidden flex px-4">
         <SearchBar className=" m-auto" />
       </div>
     </div>

@@ -81,4 +81,12 @@ export const en: IMultiLangContentValue[] = [
     key: "navigation.about.label",
     content: "About us",
   },
+  {
+    key: "intro.solution.label",
+    content: "Solution",
+  },
+  {
+    key: "intro.solution.content",
+    content: `DEAHO VINA owns a comprehensive energy ecosystem from green energy solutions, distribution and storage systems to value-added services, committed to accompanying businesses in the mission of developing the sustainable energy industry. solid.`,
+  },
 ];

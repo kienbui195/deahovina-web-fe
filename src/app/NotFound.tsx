@@ -7,11 +7,11 @@ const NotFound = () => {
       <div className="container relative py-16 lg:py-20">
         {/* HEADER */}
         <header className="text-center max-w-2xl mx-auto space-y-7 flex flex-col items-stretch">
-          <h2 className="text-7xl md:text-8xl">🪔</h2>
-          <h1 className="text-8xl md:text-9xl font-semibold tracking-widest">
+          <h2 className="text-7xl lg:text-8xl">🪔</h2>
+          <h1 className="text-8xl lg:text-9xl font-semibold tracking-widest">
             404
           </h1>
-          <span className="block text-sm text-neutral-800 sm:text-base tracking-wider font-medium">
+          <span className="block text-sm text-neutral-800 lg:text-base tracking-wider font-medium">
             {`THE PAGE YOU WERE LOOKING FOR DOESN'T EXIST.`}
           </span>
           <div className="flex justify-center">

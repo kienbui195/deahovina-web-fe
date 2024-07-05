@@ -97,4 +97,12 @@ export const kr: IMultiLangContentValue[] = [
     key: "navigation.about.label",
     content: "회사 소개",
   },
+  {
+    key: "intro.solution.label",
+    content: "해결책",
+  },
+  {
+    key: "intro.solution.content",
+    content: `DEAHO VINA는 녹색 에너지 솔루션, 유통 및 저장 시스템에서 부가가치 서비스에 이르기까지 포괄적인 에너지 생태계를 보유하고 있으며 지속 가능한 에너지 산업 발전이라는 사명을 함께 수행하는 데 전념하고 있습니다.`,
+  },
 ];

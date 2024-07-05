@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 const Footer = () => {
   return (
     <footer className="bg-blue-700 pt-[30px] text-md mt-[30px]">
-      <div className="grid md:grid-cols-3 sm:dhv-container dhv-container-sm">
+      <div className="grid lg:grid-cols-3 lg:dhv-container dhv-container-sm">
         <div className="text-white font-semibold mb-[28px]">
           <div className="uppercase text-white font-semibold">
             Chính sách công ty

@@ -93,4 +93,12 @@ export const vi: IMultiLangContentValue[] = [
     key: "navigation.solutions.electrical.automation",
     content: "Giải pháp điện tự động hóa",
   },
+{
+  key: "intro.solution.label",
+  content: "Giải pháp",
+},
+{
+  key: "intro.solution.content",
+  content: `DEAHO VINA sở hữu hệ sinh thái năng lượng toàn diện từ các giải pháp năng lượng xanh, phân phối và hệ thống lưu trữ đến dịch vụ gia tăng giá trị, cam kết đồng hành cùng doanh nghiệp trong sứ mệnh phát triển ngành năng lượng bền vững.`,
+},
 ];
