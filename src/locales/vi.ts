@@ -122,4 +122,8 @@ export const vi: IMultiLangContentValue[] = [
     key: "footer.policy.label",
     content: `Chính sách`,
   },
+  {
+    key: "section.timeline.label",
+    content: `Lịch Sử`,
+  },
 ];

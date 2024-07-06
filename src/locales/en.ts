@@ -110,4 +110,8 @@ export const en: IMultiLangContentValue[] = [
     key: "footer.policy.label",
     content: `Policies`,
   },
+  {
+    key: "section.timeline.label",
+    content: `History`,
+  },
 ];

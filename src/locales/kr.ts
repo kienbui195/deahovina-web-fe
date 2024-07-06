@@ -125,4 +125,8 @@ export const kr: IMultiLangContentValue[] = [
     key: "footer.policy.label",
     content: `정책`,
   },
+  {
+    key: "section.timeline.label",
+    content: `역사`,
+  },
 ];
