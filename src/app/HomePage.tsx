@@ -39,13 +39,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-stretch">
       <TopBanner data={topBanner} />
-      <TimelineSection
-        items={[
-          { dateTime: new Date("2024-01-01") , content: "New Year's Day" },
-          { dateTime: new Date("2024-02-14"), content: "Valentine's Day" },
-          { dateTime: new Date("2024-07-04"), content: "Independence Day" },
-        ]}
-      />
+      <TimelineSection />
       <SectionSolution />
       <div className="lg:dhv-container dhv-container-sm">
         <section className="mt-[30px]">
