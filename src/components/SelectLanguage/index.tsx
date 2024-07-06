@@ -62,13 +62,13 @@ const SelectLanguage = ({
         />
       </SelectTrigger>
       <SelectContent className={cn(["w-fit", bgContentColor])}>
-        <SelectItem value="vi">
+        <SelectItem value="vi-VN">
           <Image src={VietnamFlagIcon} alt="" className="w-6 h-6 mr-2" />
         </SelectItem>
         <SelectItem value="en">
           <Image src={EnglishFlagIcon} alt="" className="w-6 h-6 mr-2" />
         </SelectItem>
-        <SelectItem value="kr">
+        <SelectItem value="ko-KR">
           <Image src={KoreaFlagIcon} alt="" className="w-6 h-6 mr-2" />
         </SelectItem>
       </SelectContent>

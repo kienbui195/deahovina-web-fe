@@ -4,9 +4,9 @@ import { en } from "./en";
 import { kr } from "./kr";
 
 const MultilingualContent: IMultiLangContentState = {
-  vi,
+  "vi-VN": vi,
   en,
-  kr,
+  "ko-KR": kr,
 };
 
 export default MultilingualContent;

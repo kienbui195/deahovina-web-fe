@@ -14,15 +14,15 @@ const initialState = (): IMultiLangContentInitState => {
 
   if (!isClient)
     return {
-      lang: "vi",
-      content: getContentWithLang("vi"),
+      lang: "vi-VN",
+      content: getContentWithLang("vi-VN"),
     };
   const theLatestSelectedLang = localStorage.getItem("DHV_LANG");
   return {
     content: theLatestSelectedLang
       ? getContentWithLang(theLatestSelectedLang as TLang)
-      : getContentWithLang("vi"),
-    lang: theLatestSelectedLang ? (theLatestSelectedLang as TLang) : "vi",
+      : getContentWithLang("vi-VN"),
+    lang: theLatestSelectedLang ? (theLatestSelectedLang as TLang) : "vi-VN",
   };
 };
 

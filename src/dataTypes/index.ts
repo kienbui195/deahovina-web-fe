@@ -1,4 +1,14 @@
-export type TLang = 'vi' | 'en' | 'kr'
+export type TLang = 'vi-VN' | 'en' | 'ko-KR'
+
+export interface IMedia {
+  id: number;
+  attributes: {
+    name?: string;
+    url: string;
+    width?: number;
+    height?: number;
+  }
+}
 
 export interface IMultiLangContentValue {
   key: string;
@@ -6,9 +16,9 @@ export interface IMultiLangContentValue {
 }
 
 export interface IMultiLangContentState {
-  vi: IMultiLangContentValue[],
+  "vi-VN": IMultiLangContentValue[],
   en: IMultiLangContentValue[],
-  kr: IMultiLangContentValue[]
+  "ko-KR": IMultiLangContentValue[]
 }
 
 export interface IGlobalData {
@@ -19,4 +29,36 @@ export interface ITopBanner {
   id: number;
   link_on_click: string;
   url: string;
+}
+
+export interface IAboutInfo {
+  id: number;
+  content?: string;
+  hero_title?: string;
+  hero_images: {
+    data?: IMedia[]
+  }
+}
+
+export interface IBasicInfo {
+  id: number;
+  address?: string;
+  fax?: string;
+  tel?: string;
+}
+
+export interface IMainSpecialization {
+  id: number;
+  name: string;
+  desc?: string;
+}
+
+export interface ICompanyInfo {
+  id: number;
+  attributes: {
+    email?: string;
+    main_specialization?: IMainSpecialization[];
+    about_info?: IAboutInfo;
+    basic_info?: IBasicInfo[]
+  }
 }
