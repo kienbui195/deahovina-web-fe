@@ -93,12 +93,33 @@ export const vi: IMultiLangContentValue[] = [
     key: "navigation.solutions.electrical.automation",
     content: "Giải pháp điện tự động hóa",
   },
-{
-  key: "intro.solution.label",
-  content: "Giải pháp",
-},
-{
-  key: "intro.solution.content",
-  content: `DEAHO VINA sở hữu hệ sinh thái năng lượng toàn diện từ các giải pháp năng lượng xanh, phân phối và hệ thống lưu trữ đến dịch vụ gia tăng giá trị, cam kết đồng hành cùng doanh nghiệp trong sứ mệnh phát triển ngành năng lượng bền vững.`,
-},
+  {
+    key: "intro.solution.label",
+    content: "Giải pháp",
+  },
+  {
+    key: "intro.solution.content",
+    content: `DEAHO VINA sở hữu hệ sinh thái năng lượng toàn diện từ các giải pháp năng lượng xanh, phân phối và hệ thống lưu trữ đến dịch vụ gia tăng giá trị, cam kết đồng hành cùng doanh nghiệp trong sứ mệnh phát triển ngành năng lượng bền vững.`,
+  },
+  {
+    key: "intro.company.name",
+    content: `Công ty TNHH Xây dựng, Dịch vụ và thương mại Daeho vina`,
+  },
+
+  {
+    key: "footer.contact.label",
+    content: `Kết nối với DEAHOVINA`,
+  },
+  {
+    key: "footer.contact.button.label",
+    content: `Liên hệ`,
+  },
+  {
+    key: "footer.contact.address",
+    content: `Số 27 chợ Sunrise B, công viên The Manor Center, Phường Đại Kim, Quận Hoàng Mai, Hà Nội, Việt Nam`,
+  },
+  {
+    key: "footer.policy.label",
+    content: `Chính sách`,
+  },
 ];

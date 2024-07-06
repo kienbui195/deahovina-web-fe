@@ -5,8 +5,6 @@ import { cn } from "@/lib/utils";
 import StoreProvider from "./StoreProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Suspense } from "react";
-import NotFound from "./NotFound";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -16,7 +14,7 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   title: "DEAHO VINA",
-  description: "",
+  description: "대표 안광호, Giám đốc điều hành Ahn Kwang-ho ,",
 };
 
 export default async function RootLayout({
@@ -26,16 +24,11 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
-      >
+      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
         <StoreProvider>
           <Header />
           <div>
-            <Suspense fallback={<NotFound />}>{children}</Suspense>
+            {children}
             <Footer />
           </div>
         </StoreProvider>

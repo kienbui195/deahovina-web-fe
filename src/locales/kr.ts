@@ -105,4 +105,24 @@ export const kr: IMultiLangContentValue[] = [
     key: "intro.solution.content",
     content: `DEAHO VINA는 녹색 에너지 솔루션, 유통 및 저장 시스템에서 부가가치 서비스에 이르기까지 포괄적인 에너지 생태계를 보유하고 있으며 지속 가능한 에너지 산업 발전이라는 사명을 함께 수행하는 데 전념하고 있습니다.`,
   },
+  {
+    key: "intro.company.name",
+    content: `Daeho Vina 건설, 서비스 및 무역 유한 공사`,
+  },
+  {
+    key: "footer.contact.button.label",
+    content: `연락하다`,
+  },
+  {
+    key: "footer.contact.label",
+    content: `DEAHOVINA와 연결`,
+  }, 
+  {
+    key: "footer.contact.address",
+    content: `No 27 market sunrise B, The Manor Center park, Dai Kim Ward, Hoang Mai District, Hanoi, Vietnam`,
+  },
+  {
+    key: "footer.policy.label",
+    content: `정책`,
+  },
 ];
