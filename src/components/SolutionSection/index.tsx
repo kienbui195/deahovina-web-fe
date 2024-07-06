@@ -61,9 +61,9 @@ const SectionSolution = () => {
           src={BGSolar}
           className="w-full bg-white h-auto max-h-[400px] object-cover"
         />
-        <div className="absolute top-0 z-10 right-0 left-0 bottom-0 bg-slate-800 opacity-80 p-0 flex justify-center items-center flex-col text-center gap-4 pb-10">
-          <div className="font-bold text-white lg:text-3xl text-lg">
-            {getLabel("intro.solution.label")}
+        <div className="absolute top-0 right-0 left-0 bottom-0 bg-slate-800 opacity-80 p-0 flex justify-center items-center flex-col text-center gap-4">
+          <div className="font-bold text-white md:text-3xl text-lg">
+            Giải pháp
           </div>
           <div className="text-white font-semibold lg:px-72 px-2 text-xs lg:text-base">
             {getLabel("intro.solution.content")}
