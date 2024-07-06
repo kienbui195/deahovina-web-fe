@@ -89,4 +89,25 @@ export const en: IMultiLangContentValue[] = [
     key: "intro.solution.content",
     content: `DEAHO VINA owns a comprehensive energy ecosystem from green energy solutions, distribution and storage systems to value-added services, committed to accompanying businesses in the mission of developing the sustainable energy industry. solid.`,
   },
+
+  {
+    key: "intro.company.name",
+    content: `Daeho Vina Construction, Service & Trading Co.,Ltd`,
+  },
+  {
+    key: "footer.contact.button.label",
+    content: `Contact Us`,
+  },
+  {
+    key: "footer.contact.label",
+    content: `Connect with DEAHOVINA`,
+  },
+  {
+    key: "footer.contact.address",
+    content: `No 27 market sunrise B, The Manor Center park, Dai Kim Ward, Hoang Mai District, Hanoi, Vietnam`,
+  },
+  {
+    key: "footer.policy.label",
+    content: `Policies`,
+  },
 ];
