@@ -24,8 +24,10 @@ import { ChevronDown } from "lucide-react";
 
 const MenuNavigation = ({
   direction = "horizontal",
+  className
 }: {
   direction?: "horizontal" | "vertical";
+  className?: string;
 }) => {
   const { getLabel } = useGetLabel();
   const lang = useSelector((state: RootState) => state.contentLang.lang);
@@ -104,11 +106,11 @@ const MenuNavigation = ({
       </NavigationMenuList>
     </NavigationMenu>
   ) : (
-    <div className="uppercase font-bold my-8">
-      <Link href={"/"} className="pl-4 py-2 block w-fit">
+    <div className={cn(["uppercase font-bold mt-8", className])}>
+      <Link href={"/"} className="py-2 block w-fit">
         {getLabel("navigation.home.label")}
       </Link>
-      <Link href={"/#"} className="pl-4 py-2 block w-fit">
+      <Link href={"/#"} className="py-2 block w-fit">
         {getLabel("navigation.products.label")}
       </Link>
       <Collapsible
@@ -118,18 +120,18 @@ const MenuNavigation = ({
         }}
       >
         <CollapsibleTrigger asChild>
-          <span className="px-4 py-2 flex flex-row items-center gap-4 cursor-pointer w-fit">
+          <span className="py-2 flex flex-row items-center gap-4 cursor-pointer w-fit">
             <span>{getLabel("navigation.solutions.label")}</span>
             <ChevronDown
               className={cn([
-                "w-4 h-4  transition-all duration-200",
+                "w-4 h-4 transition-all duration-200",
                 collapSolutions ? "rotate-180" : "",
               ])}
             />
           </span>
         </CollapsibleTrigger>
         <CollapsibleContent>
-          <div className="pl-4 gap-2 flex flex-col ml-3 ">
+          <div className="gap-2 flex flex-col ml-3 ">
             {SOLUTIONS.map((item, idx) => {
               return (
                 <Link key={idx} href={item.href} className="block w-fit">
@@ -140,10 +142,10 @@ const MenuNavigation = ({
           </div>
         </CollapsibleContent>
       </Collapsible>
-      <Link href={"/services"} className="pl-4 py-2 block w-fit">
+      <Link href={"/services"} className="py-2 block w-fit">
         {getLabel("navigation.services.label")}
       </Link>
-      <Link href={"/about"} className="pl-4 py-2 block w-fit">
+      <Link href={"/about"} className="py-2 block w-fit">
         {getLabel("navigation.about.label")}
       </Link>
     </div>

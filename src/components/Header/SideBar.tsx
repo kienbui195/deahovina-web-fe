@@ -32,7 +32,7 @@ const SideBar = ({ className }: { className?: string }) => {
         <div className="mt-20">
           <SearchBar />
         </div>
-        <div>
+        <div className="ml-4">
           <MenuNavigation direction="vertical" />
         </div>
         {/* <SheetFooter>

@@ -116,11 +116,19 @@ export const vi: IMultiLangContentValue[] = [
   },
   {
     key: "footer.contact.address",
-    content: `Số 27 chợ Sunrise B, công viên The Manor Center, Phường Đại Kim, Quận Hoàng Mai, Hà Nội, Việt Nam`,
+    content: `Số 27 Market Sunrise B, The Manor Center Park, Phường Đại Kim, Quận Hoàng Mai, Hà Nội, Việt Nam`,
   },
   {
     key: "footer.policy.label",
     content: `Chính sách`,
+  },
+  {
+    key: "footer.policy.security",
+    content: `Chính sách bảo mật thông tin`,
+  },
+  {
+    key: "footer.policy.rules",
+    content: `Chính sách và quy định chung`,
   },
   {
     key: "section.timeline.label",

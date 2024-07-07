@@ -114,4 +114,12 @@ export const en: IMultiLangContentValue[] = [
     key: "section.timeline.label",
     content: `History`,
   },
+  {
+    key: "footer.policy.security",
+    content: `Information Protection Policy`,
+  },
+  {
+    key: "footer.policy.rules",
+    content: `General Policies and Regulations`,
+  },
 ];

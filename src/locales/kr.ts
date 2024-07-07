@@ -116,7 +116,7 @@ export const kr: IMultiLangContentValue[] = [
   {
     key: "footer.contact.label",
     content: `DEAHOVINA와 연결`,
-  }, 
+  },
   {
     key: "footer.contact.address",
     content: `No 27 market sunrise B, The Manor Center park, Dai Kim Ward, Hoang Mai District, Hanoi, Vietnam`,
@@ -128,5 +128,13 @@ export const kr: IMultiLangContentValue[] = [
   {
     key: "section.timeline.label",
     content: `역사`,
+  },
+  {
+    key: "footer.policy.security",
+    content: `정보보호정책`,
+  },
+  {
+    key: "footer.policy.rules",
+    content: `일반 정책 및 규정`,
   },
 ];

@@ -12,10 +12,12 @@ import useScrollDirection from "@/hooks/useScrollDirection";
 import { Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import MenuNavigation from "../MenuNavigation";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const isNearTop = useIsAtTop();
   const isScrollDown = useScrollDirection();
+  const router = useRouter()
 
   return (
     <header
@@ -51,7 +53,7 @@ const Header = () => {
       <div className="bg-white h-full border-b border-slate-200">
         <div className="lg:dhv-container dhv-container-sm h-full flex items-center justify-between m-auto gap-2">
           <div className="flex flex-row gap-2 items-center">
-            <SideBar className="sm:hidden flex" />
+            <SideBar className="md:hidden flex" />
             <Link href={"/"}>
               <Image
                 alt=""
@@ -70,12 +72,13 @@ const Header = () => {
             alt=""
             src={SquareLogo}
             className={cn([
-              "2 w-fit object-contain transition-all duration-200 md:hidden flex",
+              "2 w-fit object-contain transition-all duration-200 md:hidden flex cursor-pointer",
               !isNearTop ? "h-[70px]" : "h-[90px]",
             ])}
             width={0}
             height={0}
             sizes="100vw"
+            onClick={() => router.push('/')}
           />
           <MenuNavigation />
           <div className="lg:hidden flex">

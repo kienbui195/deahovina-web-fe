@@ -12,9 +12,14 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/store";
+import MenuNavigation from "../MenuNavigation";
 
 const Footer = () => {
   const { getLabel } = useGetLabel();
+  const locale = useSelector((state: RootState) => state.contentLang.lang);
+
   const formSchema = React.useMemo(() => {
     return z.object({
       fullName: z.string().min(2, {
@@ -43,38 +48,47 @@ const Footer = () => {
   });
 
   const onSubmit = () => {
-    alert(1)
+    alert(1);
   };
 
   return (
-    <footer className="bg-blue-700 text-md mt-[30px] pt-9">
-      <div className="flex md:flex-row flex-wrap flex-col gap-4 justify-between lg:dhv-container dhv-container-sm">
-        <div className=" text-white font-semibold mb-[28px] text-xs max-w-[500px]">
-          <div className="flex flex-row gap-2">
-            <Image alt="" src={SquareLogo} className="w-[120px] h-24 object-cover" />
-            <div className="flex flex-col gap-2 justify-start items-start">
-              <div className="flex gap-2">
-                <MapPin className="w-3 h-3" />
-                <div className="text-wrap">{getLabel("footer.contact.address")}</div>
+    <footer className="bg-blue-700 text-md mt-[30px]">
+      <div className="h-14 bg-blue-200 shadow-inner border-t content-center">
+        <div className="font-bold container flex justify-between items-center">
+          <div>DEAHO VINA</div>
+          <Button className="font-bold bg-blue-600 hover:bg-blue-700">{getLabel('footer.contact.button.label')}</Button>
+        </div>
+      </div>
+      <div className="flex md:flex-row flex-wrap flex-col gap-4 justify-between lg:dhv-container dhv-container-sm pt-10">
+        <div className="flex-2 text-white font-semibold mb-[28px] text-sm max-w-[500px] text-wrap">
+          <div className="flex flex-row gap-6">
+            <Image alt="" src={SquareLogo} className="md:w-[160px] w-full flex-1 md:flex-none h-auto object-cover" />
+            <div className="flex flex-col gap-2 justify-start items-start flex-1">
+              <div className="flex gap-3 leading-6">
+                <MapPin className="w-6 h-6" />
+                <span className="leading-6 capitalize">{getLabel("footer.contact.address")}</span>
               </div>
-              <div className="flex gap-2 text-wrap ">
+              <div className="flex gap-3 leading-6 items-center">
                 <Phone className="w-3 h-3" />
-                <div className="flex flex-col gap-1">
-                  <div>{"+84(VN)965-058-521"}</div>
-                  <div>{"+82(KR)10-3145-0717"}</div>
+                <div className="">
+                  {locale === "vi-VN" ? (
+                    <div>{"+84(VN)965-058-521"}</div>
+                  ) : locale === "en" ? null : (
+                    <div>{"+82(KR)10-3145-0717"}</div>
+                  )}
                 </div>
               </div>
-              <Link href={`mailto:daehovina@gmail.com`} className="flex gap-2 items-center hover:underline">
+              <Link href={`mailto:daehovina@gmail.com`} className="flex gap-3 leading-6 items-center hover:underline">
                 <Mail className="w-3 h-3" />
                 <div>daehovina@gmail.com</div>
               </Link>
-              <Link href={`mailto:daehovina@gmail.com`} className="flex gap-2 items-center hover:underline">
+              <Link href={`mailto:daehovina@gmail.com`} className="flex gap-3 leading-6 items-center hover:underline">
                 <Globe className="w-3 h-3" />
                 <div>example.deahovina.com</div>
               </Link>
             </div>
           </div>
-          <div className="w-full mt-4 capitalize">{getLabel("intro.company.name")}</div>
+          <div className="w-full mt-6 text-sm capitalize">{getLabel("intro.company.name")}</div>
           <div className="flex flex-row gap-1 mt-4">
             <Button size={"icon"} className="rounded-full">
               <Facebook className="w-4 h-4" />
@@ -94,29 +108,28 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="text-white font-semibold mb-[28px]">
-          <div className="uppercase text-white font-semibold">{getLabel('footer.policy.label')}</div>
-          <div className="h-1 w-[50px] bg-slate-300 my-4"></div>
-          <div className="space-y-5">
+        <div className="text-white font-semibold mb-[28px] flex-1">
+          <div className="uppercase text-white font-semibold">Deaho Vina</div>
+          <div className="h-1 md:w-[50px] bg-slate-300 my-4"></div>
+          <div className="gap-5 -translate-y-3">
+            <MenuNavigation direction="vertical" className="capitalize mt-0" />
+          </div>
+        </div>
+
+        <div className="text-white font-semibold mb-[28px] flex-1">
+          <div className="uppercase text-white font-semibold">{getLabel("footer.policy.label")}</div>
+          <div className="h-1 md:w-[50px] bg-slate-300 my-4"></div>
+          <div className="space-y-3">
             <Link href="/chinh-sach-va-quy-dinh-chung" className="hover:underline block">
-              Chính sách và quy định chung
+              {getLabel("footer.policy.rules")}
             </Link>
             <Link href="/chinh-sach-va-quy-dinh-chung" className="hover:underline block">
-              Chính sách bảo mật thông tin
-            </Link>
-            <Link href="/chinh-sach-va-quy-dinh-chung" className="hover:underline block">
-              Chính sách vận chuyển
-            </Link>
-            <Link href="/chinh-sach-va-quy-dinh-chung" className="hover:underline block">
-              Chính sách kiểm hàng, đổi trả hàng
-            </Link>
-            <Link href="/chinh-sach-va-quy-dinh-chung" className="hover:underline block">
-              Chính sách bảo hành sản phẩm
+              {getLabel("footer.policy.security")}
             </Link>
           </div>
         </div>
 
-        <div className=" font-semibold mb-[28px] min-w-[400px]">
+        {/* <div className=" font-semibold mb-[28px] min-w-[400px]">
           <div className="uppercase text-white font-semibold">{getLabel("footer.contact.button.label")}</div>
           <div className="h-1 w-[50px] bg-slate-300 my-4"></div>
           <div className="">
@@ -178,7 +191,7 @@ const Footer = () => {
               </form> 
             </Form>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="flex text-slate-300 h-14 flex-row text-md font-semibold justify-center dhv-container-sm items-center bg-slate-500">
         Copyright 2024 ©. {getLabel("intro.company.name")}

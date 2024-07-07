@@ -1,15 +1,22 @@
 "use client";
 import * as React from "react";
-import TimelineItem from "./TimelineItem";
 import apis from "@/apis";
 import { createQuery } from "@/lib/utils";
 import useGetLabel from "@/hooks/useGetLabel";
-import { AlignJustify } from "lucide-react";
+import Image from "next/image";
+import { BGTimeline } from "@/lib/svgExport";
+import moment from "moment";
+import { Dot } from "lucide-react";
+import { Chrono } from "@/next-chrono";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/store";
+import { Button } from "../ui/button";
+import { usePathname } from "next/navigation";
 
 export interface ITimelineItemProps {
   dateTime: Date;
   content: string;
-  id: number;
+  idx: number;
 }
 
 export interface ITimelineState {
@@ -22,7 +29,7 @@ export interface ITimelineState {
 }
 
 const TimelineSection = () => {
-  const [histories, setHistories] = React.useState<ITimelineState[]>([]);
+  const [histories, setHistories] = React.useState<any[]>([]);
   const [pagination, setPagination] = React.useState({
     page: 1,
     pageSize: 25,
@@ -30,6 +37,8 @@ const TimelineSection = () => {
     pageCount: 1,
   });
   const { getLabel } = useGetLabel();
+  const lang = useSelector((state: RootState) => state.contentLang.lang);
+  const pathname = usePathname();
 
   const handleGetData = (page: number = 1) => {
     apis
@@ -40,21 +49,23 @@ const TimelineSection = () => {
             page: page || pagination.page,
             pageSize: pagination.pageSize,
           },
+          sort: {
+            date: "asc",
+          },
+          locale: lang,
         })
       )
       .then(res => {
         const { data, meta } = res.data;
         const { pagination } = meta;
         let list = [];
+
         if (data.length > 0) {
-          list = data.reduce((_acc: ITimelineState[], _item: any) => {
+          list = data.reduce((_acc: any[], _item: any) => {
             _acc.push({
-              id: _item.id,
-              attributes: {
-                activity: _item.attributes.activity,
-                date: new Date(_item.attributes.date),
-                locale: _item.attributes.locale,
-              },
+              title: moment(_item.attributes.date).format("YYYY"),
+              cardDetailedText: _item.attributes.activity.trim().split("\n"),
+              cardTitle: "Activity",
             });
             return _acc;
           }, []);
@@ -62,6 +73,7 @@ const TimelineSection = () => {
 
         setHistories(page === 1 ? list : histories.concat(list));
         setPagination(pagination);
+
       })
       .catch(err => {
         console.log("[GET_HISTORIES]", err);
@@ -69,25 +81,39 @@ const TimelineSection = () => {
   };
 
   React.useEffect(() => {
-    handleGetData();
-  }, []);
+    handleGetData(1);
+  }, [lang, pathname]);
 
   return (
-    <section className="container flex flex-col space-y-6 mt-[30px]">
-      <div className="relative ">
-        <div className="absolute top-0 -translate-x-1/2 bg-white border border-slate-200 p-[6px_18px] h-full flex flex-row items-center space-x-4">
-          <AlignJustify className="w-6 h-6" />
-          <span className="text-blue-600 uppercase font-bold">{getLabel("section.timeline.label")}</span>
-        </div>
-        <div className="w-full h-full flex flex-row items-center">
-          <div className="h-[2px] w-full bg-slate-200"></div>
-        </div>
+    <section className="w-full h-[60vh] relative mt-1">
+      <Image alt="" src={BGTimeline} className="w-full h-full object-fill " />
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+      <div className="font-bold text-white text-2xl absolute p-2 top-4 left-4">
+        {getLabel("section.timeline.label")}
       </div>
-      <div className="h-full">
-        <div className="border-2-2 border-blue-500 absolute h-full border left-1/2"></div>
-        {histories.map((item, index) => (
-          <TimelineItem id={item.id} key={index} dateTime={item.attributes.date} content={item.attributes.activity} />
-        ))}
+      <div className="absolute top-0 left-0 w-full h-full flex py-8">
+        <Chrono
+          items={histories.map(item => ({
+            ...item,
+            cardDetailedText: item.cardDetailedText.map((text: string, index: number) => (
+              <div key={index} className="flex flex-row items-center gap-2">
+                <Dot className="w-6 h-6" />
+                <span>{text}</span>
+              </div>
+            )),
+          }))}
+          // items={histories}
+          disableToolbar={true}
+          mode="VERTICAL_ALTERNATING"
+        />
+        {pagination.page < pagination.pageCount && (
+          <Button
+            variant={"default"}
+            className="font-bold w-[40vw] z-[5] absolute bg-slate-100 hover:bg-slate-200 active:bg-slate-200 text-black hover:-translate-y-1 bottom-5 left-1/2 -translate-x-1/2"
+          >
+            Load More
+          </Button>
+        )}
       </div>
     </section>
   );
