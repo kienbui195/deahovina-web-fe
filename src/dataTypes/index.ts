@@ -62,3 +62,32 @@ export interface ICompanyInfo {
     basic_info?: IBasicInfo[]
   }
 }
+
+export interface ICustomerSite {
+  id: number;
+  attributes: {
+    name: string;
+    slug: string;
+    projects?: {
+      data?: IProject[]
+    }
+  }
+}
+
+export interface IProject {
+  id: number;
+  attributes: {
+    name: string;
+    slug: string;
+    thumbnails: {
+      data: IMedia[]
+    }
+    customer_site: {
+      data?: ICustomerSite
+    }
+    model: string;
+    power: string;
+    desc: string;
+    createdAt: Date;
+  }
+}

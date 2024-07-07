@@ -32,8 +32,6 @@ const IndexPage = () => {
   });
 
   const settingLang = useSelector((state: RootState) => state.contentLang.lang);
-console.log(settingLang);
-
 
   const getAboutInfo = () => {
     apis
