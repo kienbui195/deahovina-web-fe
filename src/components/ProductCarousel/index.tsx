@@ -13,14 +13,10 @@ import apis from "@/apis";
 import { createQuery } from "@/lib/utils";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
-import { ICustomerSite, IProject } from "@/dataTypes";
+import { IProject } from "@/dataTypes";
 import moment from "moment";
 
-const ProductCarouselWithCate = ({
-  customerSite,
-}: {
-  customerSite: ICustomerSite;
-}) => {
+const ProductCarousel = ({}: {}) => {
   const [projects, setProjects] = useState<IProject[]>([]);
   const settingLang = useSelector((state: RootState) => state.contentLang.lang);
 
@@ -29,9 +25,6 @@ const ProductCarouselWithCate = ({
       .getPublic(
         "projects",
         createQuery({
-          filters: {
-            customer_site: customerSite.id,
-          },
           populate: {
             thumbnails: {
               fields: ["url"],
@@ -52,7 +45,7 @@ const ProductCarouselWithCate = ({
   }, [settingLang]);
 
   if (projects.length < 1) {
-    return null
+    return null;
   }
 
   return (
@@ -61,7 +54,7 @@ const ProductCarouselWithCate = ({
         <div className="absolute top-0 left-0 bg-white border border-slate-200 p-[6px_18px] h-full flex flex-row items-center space-x-4">
           <AlignJustify className="w-6 h-6" />
           <span className="text-blue-600 uppercase font-bold">
-            Customer site: {customerSite.attributes.name}
+            Dự án
           </span>
         </div>
         <div className="w-full h-full flex flex-row items-center">
@@ -73,20 +66,8 @@ const ProductCarouselWithCate = ({
           {projects.map((p, index) => (
             <CarouselItem
               key={index}
-              className="cursor-pointer basis-[300px] p-4 ml-8 border rounded-xl">
+              className="cursor-pointer basis-[30%] p-4 ml-8 border rounded-xl">
               <div className="w-full flex justify-center">
-                {/* <Image
-                  alt=""
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  src={
-                    process.env.NEXT_PUBLIC_BE +
-                    p.attributes.thumbnails.data[0].attributes.url
-                  }
-                  className="object-cover max-h-[400px] h-full w-full border rounded-xl"
-                /> */}
-
                 <div className="">
                   <Carousel
                     className="z-10"
@@ -113,10 +94,7 @@ const ProductCarouselWithCate = ({
                         );
                       })}
                     </CarouselContent>
-                    <CarouselNext
-                      type="button"
-                      className="border-none"
-                    />
+                    <CarouselNext type="button" className="border-none" />
                   </Carousel>
                 </div>
               </div>
@@ -148,4 +126,4 @@ const ProductCarouselWithCate = ({
   );
 };
 
-export default ProductCarouselWithCate;
+export default ProductCarousel;

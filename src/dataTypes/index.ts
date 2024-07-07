@@ -71,6 +71,9 @@ export interface ICustomerSite {
     projects?: {
       data?: IProject[]
     }
+    logo: {
+      data?: IMedia
+    }
   }
 }
 
