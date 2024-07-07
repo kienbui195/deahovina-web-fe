@@ -9,6 +9,7 @@ import BGSolar from '@/assets/images/pngtree-cutting-edge-solar-cell-panels-revo
 import BGWindPower from '@/assets/images/nang-luong-gio-la-gi.jpg'
 import BGPinSun from '@/assets/images/solar.jpg'
 import BGPinSun2 from '@/assets/images/pin-mat-troi2.png'
+import BGTimeline from '@/assets/images/timeline-background.svg'
 
 export {
   VietnamFlagIcon,
@@ -21,5 +22,6 @@ export {
   BGSolar,
   BGPinSun,
   BGPinSun2,
-  BGWindPower
+  BGWindPower,
+  BGTimeline
 }

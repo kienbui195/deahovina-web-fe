@@ -6,12 +6,13 @@ const useGetLabel = () => {
   const labelLang = useSelector((state: RootState) => state.contentLang.content);
 
   const getLabel = (key: string): string => {
-    return `${
-      labelLang.find((content) => content.key === key)?.content || undefined
-    }`;
+    return `${labelLang.find((content) => content.key === key)?.content || undefined
+      }`;
+
+    // return 'test'
   };
 
-  return {getLabel}
+  return { getLabel }
 };
 
 export default useGetLabel

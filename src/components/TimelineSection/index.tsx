@@ -1,24 +1,121 @@
 "use client";
 import * as React from "react";
-import TimelineItem from "./TimelineItem";
+import apis from "@/apis";
+import { createQuery } from "@/lib/utils";
+import useGetLabel from "@/hooks/useGetLabel";
+import Image from "next/image";
+import { BGTimeline } from "@/lib/svgExport";
+import moment from "moment";
+import { Dot } from "lucide-react";
+import { Chrono } from "@/next-chrono";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/store";
+import { Button } from "../ui/button";
+import { usePathname } from "next/navigation";
 
 export interface ITimelineItemProps {
   dateTime: Date;
   content: string;
+  idx: number;
 }
 
+export interface ITimelineState {
+  id: number;
+  attributes: {
+    activity: string;
+    date: Date;
+    locale: "string";
+  };
+}
 
+const TimelineSection = () => {
+  const [histories, setHistories] = React.useState<any[]>([]);
+  const [pagination, setPagination] = React.useState({
+    page: 1,
+    pageSize: 25,
+    total: 0,
+    pageCount: 1,
+  });
+  const { getLabel } = useGetLabel();
+  const lang = useSelector((state: RootState) => state.contentLang.lang);
+  const pathname = usePathname();
 
-const TimelineSection = ({ items }: { items: ITimelineItemProps[] }) => {
+  const handleGetData = (page: number = 1) => {
+    apis
+      .getPublic(
+        "histories",
+        createQuery({
+          pagination: {
+            page: page || pagination.page,
+            pageSize: pagination.pageSize,
+          },
+          sort: {
+            date: "asc",
+          },
+          locale: lang,
+        })
+      )
+      .then(res => {
+        const { data, meta } = res.data;
+        const { pagination } = meta;
+        let list = [];
+
+        if (data.length > 0) {
+          list = data.reduce((_acc: any[], _item: any) => {
+            _acc.push({
+              title: moment(_item.attributes.date).format("YYYY"),
+              cardDetailedText: _item.attributes.activity.trim().split("\n"),
+              cardTitle: "Activity",
+            });
+            return _acc;
+          }, []);
+        }
+
+        setHistories(page === 1 ? list : histories.concat(list));
+        setPagination(pagination);
+
+      })
+      .catch(err => {
+        console.log("[GET_HISTORIES]", err);
+      });
+  };
+
+  React.useEffect(() => {
+    handleGetData(1);
+  }, [lang, pathname]);
+
   return (
-    <div className="container mx-auto w-full h-full">
-      <div className="relative wrap overflow-hidden p-10 h-full">
-        <div className="border-2-2 border-blue-500 absolute h-full border left-1/2"></div>
-        {items.map((item, index) => (
-          <TimelineItem key={index} dateTime={item.dateTime} content={item.content} />
-        ))}
+    <section className="w-full h-[60vh] relative mt-1">
+      <Image alt="" src={BGTimeline} className="w-full h-full object-fill " />
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+      <div className="font-bold text-white text-2xl absolute p-2 top-4 left-4">
+        {getLabel("section.timeline.label")}
       </div>
-    </div>
+      <div className="absolute top-0 left-0 w-full h-full flex py-8">
+        <Chrono
+          items={histories.map(item => ({
+            ...item,
+            cardDetailedText: item.cardDetailedText.map((text: string, index: number) => (
+              <div key={index} className="flex flex-row items-center gap-2">
+                <Dot className="w-6 h-6" />
+                <span>{text}</span>
+              </div>
+            )),
+          }))}
+          // items={histories}
+          disableToolbar={true}
+          mode="VERTICAL_ALTERNATING"
+        />
+        {pagination.page < pagination.pageCount && (
+          <Button
+            variant={"default"}
+            className="font-bold w-[40vw] z-[5] absolute bg-slate-100 hover:bg-slate-200 active:bg-slate-200 text-black hover:-translate-y-1 bottom-5 left-1/2 -translate-x-1/2"
+          >
+            Load More
+          </Button>
+        )}
+      </div>
+    </section>
   );
 };
 

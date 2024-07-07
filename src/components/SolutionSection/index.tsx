@@ -13,11 +13,11 @@ const CardImage = ({
   icon: StaticImport;
 }) => {
   return (
-    <div className="w-[300px]  h-[200px]  relative group/cardImage select-none">
+    <div className="w-full h-[200px] md:w-[300px] rounded-lg relative group/cardImage select-none">
       <Image
         alt=""
         src={icon}
-        className="w-[300px]  h-[200px]  rounded-lg shadow-md object-cover group-hover/cardImage:scale-110 transition-all duration-1000 scale-100"
+        className="w-full md:w-[300px] h-[200px] rounded-lg shadow-md object-cover group-hover/cardImage:scale-110 transition-all duration-1000 scale-100"
       />
       {content && (
         <div className="absolute top-0 left-0 w-full h-full group-hover/cardImage:scale-110 transition-all duration-1000 scale-100">
@@ -71,7 +71,7 @@ const SectionSolution = () => {
         </div>
         <div
           ref={divRef}
-          className="lg:h-1/4 h-fit w-full px-8 absolute z-[5] lg:bottom-0 top-100 rounded-full flex lg:flex-row flex-col lg:gap-10 gap-4 items-center justify-center lg:translate-y-1/3 -translate-y-10"
+          className="md:h-1/4 h-fit w-full px-8 absolute z-[5] md:bottom-0 top-100 rounded-full flex md:flex-row flex-col md:gap-10 gap-4 items-center justify-center md:translate-y-1/3 -translate-y-10"
         >
           {[
             {
