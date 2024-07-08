@@ -54,7 +54,7 @@ const SectionSolution = () => {
   }, [divRef.current]);
 
   return (
-    <section className="w-full bg-white h-auto mt-10">
+    <section className="w-full bg-white h-auto mt-1">
       <div className="relative bg-white">
         <Image
           alt=""

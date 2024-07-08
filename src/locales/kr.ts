@@ -189,4 +189,24 @@ export const kr: IMultiLangContentValue[] = [
     key: "about.organizational",
     content: `조직도`,
   },
+  {
+    key: "page.form.contactus.label",
+    content: `문의하기`,
+  },
+  {
+    key: "page.form.contactus.input.name",
+    content: `당신의 이름`,
+  },
+  {
+    key: "page.form.contactus.input.phone",
+    content: `전화 번호`,
+  },
+  {
+    key: "page.form.contactus.input.tellToUs",
+    content: `우리에게 뭔가를 말해주세요`,
+  },
+  {
+    key: "page.form.contactus.button.label",
+    content: `보내다`,
+  },
 ];

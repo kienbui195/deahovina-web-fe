@@ -47,6 +47,7 @@ export default function Home() {
       <TopBanner data={topBanner} />
       <TimelineSection />
       <SectionSolution />
+<<<<<<< HEAD
         <div className="lg:dhv-container dhv-container-sm">
           <section className="mt-[30px]">
             <ProductCarousel />
@@ -55,6 +56,17 @@ export default function Home() {
             <CustomerCarousel />
           </section>
         </div>
+=======
+
+      <div className="lg:dhv-container dhv-container-sm">
+        <section className="mt-[30px]">
+          <ProductCarousel />
+        </section>
+        <section className="mt-[30px]">
+          <CustomerCarousel />
+        </section>
+      </div>
+>>>>>>> 57a6ecba1ba700a308e4cbc8090298d5b44c3b06
     </main>
   );
 }

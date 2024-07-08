@@ -174,4 +174,24 @@ export const en: IMultiLangContentValue[] = [
     key: "about.organizational",
     content: `Organizational structure`,
   },
+  {
+    key: "page.form.contactus.label",
+    content: `Contact Us`,
+  },
+  {
+    key: "page.form.contactus.input.name",
+    content: `Your Name`,
+  },
+  {
+    key: "page.form.contactus.input.phone",
+    content: `Your Phone`,
+  },
+  {
+    key: "page.form.contactus.input.tellToUs",
+    content: `Tell something to us`,
+  },
+  {
+    key: "page.form.contactus.button.label",
+    content: `Send`,
+  },
 ];
