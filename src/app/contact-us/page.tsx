@@ -21,9 +21,13 @@ import { Textarea } from "@/components/ui/textarea";
 import Swal from "sweetalert2";
 import { Plus } from "lucide-react";
 import apis from "@/apis";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/store";
+import { cn } from "@/lib/utils";
 
 const ContactUs = () => {
   const { getLabel } = useGetLabel();
+  const lang = useSelector((state: RootState) => state.contentLang.lang);
 
   const formSchema = React.useMemo(() => {
     return z.object({
@@ -33,7 +37,7 @@ const ContactUs = () => {
       email: z.string().email({
         message: "Email is invalid.",
       }),
-      phone: z.number().min(8, {
+      phone: z.string().min(8, {
         message: "Username must be at least 8 characters.",
       }),
       desc: z.string().min(1, {
@@ -47,7 +51,7 @@ const ContactUs = () => {
     defaultValues: {
       fullName: "",
       email: "",
-      phone: 0,
+      phone: "",
       desc: "",
     },
   });
@@ -83,7 +87,7 @@ const ContactUs = () => {
         });
         form.setValue("fullName", "");
         form.setValue("desc", "");
-        form.setValue("phone", 0);
+        form.setValue("phone", "");
         form.setValue("email", "");
       })
       .catch(() => {
@@ -160,22 +164,43 @@ const ContactUs = () => {
                       </FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <Plus className="w-4 h-4 absolute top-1/2 -translate-y-1/2 bg-white left-2" />
+                          <div className="flex flex-row items-center absolute top-1/2 w-9 h-9 -translate-y-1/2 bg-white left-2">
+                            <Plus
+                              className={cn([
+                                "w-3 h-3",
+                                lang !== "en" && "hidden",
+                              ])}
+                            />
+                            <div
+                              className={cn(
+                                ["md:text-[14px] text-[16px] leading-4"],
+                                lang === "en" && "hidden"
+                              )}
+                            >
+                              {lang === "vi-VN" ? `  +84` : `  +82`}
+                            </div>
+                          </div>
                           <Input
                             {...field}
-                            type="number"
                             value={field.value}
                             onChange={(e) => {
                               if (e.target.value.includes("-")) return;
-                              field.onChange(+e.target.value);
+                              if (/^$|^[0-9]+$/.test(e.target.value)) {
+                                field.onChange(e.target.value);
+                              }
                             }}
-                            className="hide-arrows !pl-8"
+                            className={cn([
+                              "text-[16px]",
+                              lang === "en" ? "!pl-7" : "!pl-11",
+                            ])}
                           />
                         </div>
                       </FormControl>
-                      <FormDescription>
-                        Enter the area code in front of your phone number
-                      </FormDescription>
+                      {lang === "en" && (
+                        <FormDescription>
+                          Enter the area code in front of your phone number
+                        </FormDescription>
+                      )}
                       <FormMessage />
                     </FormItem>
                   )}

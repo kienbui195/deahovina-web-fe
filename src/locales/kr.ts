@@ -130,6 +130,10 @@ export const kr: IMultiLangContentValue[] = [
     content: `역사`,
   },
   {
+    key: "section.timeline.activity",
+    content: `활동`,
+  },
+  {
     key: "footer.policy.security",
     content: `정보보호정책`,
   },
@@ -157,4 +161,8 @@ export const kr: IMultiLangContentValue[] = [
     key: "page.form.contactus.button.label",
     content: `보내다`,
   },
+  {
+    key: "common.page.changeLang",
+    content: "잠깐 기다려요! 언어 전환"
+  }
 ];

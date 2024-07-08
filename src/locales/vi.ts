@@ -135,6 +135,10 @@ export const vi: IMultiLangContentValue[] = [
     content: `Lịch Sử`,
   },
   {
+    key: "section.timeline.activity",
+    content: `Hoạt động`,
+  },
+  {
     key: "page.form.contactus.label",
     content: `Liên hệ với chúng tôi`,
   },
@@ -154,4 +158,8 @@ export const vi: IMultiLangContentValue[] = [
     key: "page.form.contactus.button.label",
     content: `Gửi`,
   },
+  {
+    key: "common.page.changeLang",
+    content: "Chờ một chút! Đang chuyển đổi ngôn ngữ"
+  }
 ];

@@ -115,6 +115,10 @@ export const en: IMultiLangContentValue[] = [
     content: `History`,
   },
   {
+    key: "section.timeline.activity",
+    content: `Activity`,
+  },
+  {
     key: "footer.policy.security",
     content: `Information Protection Policy`,
   },
@@ -142,4 +146,8 @@ export const en: IMultiLangContentValue[] = [
     key: "page.form.contactus.button.label",
     content: `Send`,
   },
+  {
+    key: "common.page.changeLang",
+    content: "Wait a minute! Switching language"
+  }
 ];

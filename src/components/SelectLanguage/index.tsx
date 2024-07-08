@@ -21,6 +21,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { RootState } from "@/lib/store";
 import { TLang } from "@/dataTypes";
 import { cn } from "@/lib/utils";
+import WaitingPage from "../WaitingPage";
 
 const SelectLanguage = ({
   backgroundColor,
@@ -76,10 +77,10 @@ const SelectLanguage = ({
   );
 };
 
-const SelectLanguageDropdown = ({...props}) => {
+const SelectLanguageDropdown = ({ ...props }) => {
   return (
     <React.Suspense fallback={<React.Fragment />}>
-      <SelectLanguage {...props}/>
+      <SelectLanguage {...props} />
     </React.Suspense>
   );
 };

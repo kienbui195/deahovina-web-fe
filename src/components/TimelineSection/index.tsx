@@ -7,11 +7,12 @@ import Image from "next/image";
 import { BGTimeline } from "@/lib/svgExport";
 import moment from "moment";
 import { Dot } from "lucide-react";
-import { Chrono } from "@/next-chrono";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
+import { Timeline, TimelineEvent } from "react-event-timeline";
+import { ScrollArea } from "../ui/scroll-area";
 
 export interface ITimelineItemProps {
   dateTime: Date;
@@ -32,7 +33,7 @@ const TimelineSection = () => {
   const [histories, setHistories] = React.useState<any[]>([]);
   const [pagination, setPagination] = React.useState({
     page: 1,
-    pageSize: 25,
+    pageSize: 100,
     total: 0,
     pageCount: 1,
   });
@@ -63,13 +64,13 @@ const TimelineSection = () => {
             _acc.push({
               title: moment(_item.attributes.date).format("YYYY"),
               cardDetailedText: _item.attributes.activity.trim().split("\n"),
-              cardTitle: "Activity",
+              cardTitle: getLabel(`section.timeline.activity`),
             });
             return _acc;
           }, []);
         }
 
-        setHistories(page === 1 ? list : histories.concat(list));
+        setHistories(page === 1 ? list : [...histories, ...list]);
         setPagination(pagination);
       })
       .catch((err) => {
@@ -89,27 +90,42 @@ const TimelineSection = () => {
       ])}
     >
       <Image alt="" src={BGTimeline} className="w-full h-full object-fill " />
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-25"></div>
       <div className="font-bold text-white text-2xl absolute p-2 top-4 left-4">
         {getLabel("section.timeline.label")}
       </div>
-      <div className="absolute top-0 left-0 w-full h-full flex py-8">
-        <Chrono
-          items={histories.map((item) => ({
-            ...item,
-            cardDetailedText: item.cardDetailedText.map(
-              (text: string, index: number) => (
-                <div key={index} className="flex flex-row items-center gap-2">
-                  <Dot className="w-6 h-6" />
-                  <span>{text}</span>
-                </div>
-              )
-            ),
-          }))}
-          // items={histories}
-          disableToolbar={true}
-          mode="VERTICAL_ALTERNATING"
-        />
+      <div className="absolute top-0 left-0 w-full h-full flex py-8 justify-center px-10">
+        <ScrollArea className="max-h-[90vh] h-full w-full">
+          <Timeline style={{ width: "100%", maxWidth: "1060px" }}>
+            {histories.map((item, idx) => {
+              return (
+                <TimelineEvent
+                  key={idx}
+                  title={item.title}
+                  // createdAt={item.title}
+                  className=""
+                  titleStyle={{
+                    fontSize: "16px",
+                    fontWeight: "700",
+                  }}
+                  subtitle={item.cardTitle}
+                  container={"card"}
+                  icon={<Dot className="w-full h-full"/>}
+                >
+                  {item.cardDetailedText.map((text: string, index: number) => (
+                    <div
+                      key={index}
+                      className="flex flex-row items-center gap-2 w-full"
+                    >
+                      <Dot className="w-6 h-6" />
+                      <span>{text}</span>
+                    </div>
+                  ))}
+                </TimelineEvent>
+              );
+            })}
+          </Timeline>
+        </ScrollArea>
         {pagination.page < pagination.pageCount && (
           <Button
             variant={"default"}

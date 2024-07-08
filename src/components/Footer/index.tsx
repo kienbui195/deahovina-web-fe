@@ -20,16 +20,18 @@ import {
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import MenuNavigation from "../MenuNavigation";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const Footer = () => {
   const { getLabel } = useGetLabel();
   const locale = useSelector((state: RootState) => state.contentLang.lang);
   const router = useRouter();
+  const pathname = usePathname()
 
   return (
     <footer className="bg-blue-700 text-md mt-[30px]">
-      <div className="h-14 bg-blue-200 shadow-inner border-t content-center">
+      <div className={cn(["h-14 bg-blue-200 shadow-inner border-t content-center"], pathname.includes('contact-us') && 'hidden')}>
         <div className="font-bold container flex justify-between items-center">
           <div>DEAHO VINA</div>
           <Button
@@ -55,14 +57,11 @@ const Footer = () => {
                   {getLabel("footer.contact.address")}
                 </span>
               </div>
-              <div className="flex gap-3 leading-6 items-center">
+              <div className="flex gap-3 leading-4 items-start">
                 <Phone className="w-3 h-3" />
-                <div className="">
-                  {locale === "vi-VN" ? (
-                    <div>{"+84(VN)965-058-521"}</div>
-                  ) : locale === "en" ? null : (
-                    <div>{"+82(KR)10-3145-0717"}</div>
-                  )}
+                <div className="space-y-2">
+                  <div>{"+84(VN)965-058-521"}</div>
+                  <div>{"+82(KR)10-3145-0717"}</div>
                 </div>
               </div>
               <Link
