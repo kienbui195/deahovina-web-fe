@@ -87,7 +87,7 @@ const ProductCarousel = ({}: {}) => {
                                 process.env.NEXT_PUBLIC_BE +
                                 _image.attributes.url
                               }
-                              className="object-cover max-h-[400px] h-full w-full border rounded-xl"
+                              className="object-contain h-[150px] w-full border rounded-xl"
                               width={0}
                               height={0}
                               sizes="100vw"

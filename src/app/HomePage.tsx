@@ -45,6 +45,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-stretch">
       <TopBanner data={topBanner} />
+      <div className="mt-10"></div>
       <TimelineSection />
       <SectionSolution />
         <div className="lg:dhv-container dhv-container-sm">
