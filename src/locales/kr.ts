@@ -137,4 +137,56 @@ export const kr: IMultiLangContentValue[] = [
     key: "footer.policy.rules",
     content: `일반 정책 및 규정`,
   },
+  {
+    key: "home.customer-title",
+    content: `고객`,
+  },
+  {
+    key: "home.project-title",
+    content: `프로젝트`,
+  },
+  {
+    key: "about.vision",
+    content: `비전`,
+  },
+  {
+    key: "about.vision-content-1",
+    content: `최고기술력`,
+  },
+  {
+    key: "about.vision-content-2",
+    content: `최고기술력`,
+  },
+  {
+    key: "about.vision-content-3",
+    content: `최고기술력`,
+  },
+  {
+    key: "about.business-strategy",
+    content: `경영전략`,
+  },
+  {
+    key: "about.main-specialization",
+    content: `주요 업무`,
+  },
+  {
+    key: "about.business-strategy-content-1",
+    content: `사 업 목 표   2 0 0 %   달 성`,
+  },
+  {
+    key: "about.business-strategy-content-2",
+    content: `임 직 원  전 문  역 량 강 화   고 도 화`,
+  },
+  {
+    key: "about.business-strategy-content-3",
+    content: `선 도 적   미 래 성 장 기 술   창 출`,
+  },
+  {
+    key: "about.business-strategy-content-4",
+    content: `단 합 된   즐 거 운   회 사   만 들 기`,
+  },
+  {
+    key: "about.organizational",
+    content: `조직도`,
+  },
 ];

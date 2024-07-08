@@ -122,4 +122,56 @@ export const en: IMultiLangContentValue[] = [
     key: "footer.policy.rules",
     content: `General Policies and Regulations`,
   },
+  {
+    key: "home.customer-title",
+    content: `Customer`,
+  },
+  {
+    key: "home.project-title",
+    content: `Project`,
+  },
+  {
+    key: "about.vision",
+    content: `Vision`,
+  },
+  {
+    key: "about.vision-content-1",
+    content: `High technical expertise`,
+  },
+  {
+    key: "about.vision-content-2",
+    content: `Where customers put their trust`,
+  },
+  {
+    key: "about.vision-content-3",
+    content: `Always try our best`,
+  },
+  {
+    key: "about.business-strategy",
+    content: `Business strategy`,
+  },
+  {
+    key: "about.main-specialization",
+    content: `Main specialization`,
+  },
+  {
+    key: "about.business-strategy-content-1",
+    content: `Business Goal Achieved 200%`,
+  },
+  {
+    key: "about.business-strategy-content-2",
+    content: `Enhance Employee Professional Competency`,
+  },
+  {
+    key: "about.business-strategy-content-3",
+    content: `Create Pioneering Future Development Technology`,
+  },
+  {
+    key: "about.business-strategy-content-4",
+    content: `Build a United and Fun Company`,
+  },
+  {
+    key: "about.organizational",
+    content: `Organizational structure`,
+  },
 ];

@@ -9,8 +9,20 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ICompanyInfo } from "@/dataTypes";
+import useGetLabel from "@/hooks/useGetLabel";
 import { RootState } from "@/lib/store";
-import { DefaultThumbnail } from "@/lib/svgExport";
+import {
+  Business1,
+  Business2,
+  Business3,
+  Business4,
+  DefaultThumbnail,
+  Director1,
+  Director2,
+  Director3,
+  Vision1,
+  Vision2,
+} from "@/lib/svgExport";
 import { createQuery } from "@/lib/utils";
 import Image from "next/image";
 import * as React from "react";
@@ -30,7 +42,7 @@ const IndexPage = () => {
       },
     },
   });
-
+  const { getLabel } = useGetLabel();
   const settingLang = useSelector((state: RootState) => state.contentLang.lang);
 
   const getAboutInfo = () => {
@@ -85,7 +97,7 @@ const IndexPage = () => {
                 (img, index) => (
                   <CarouselItem
                     key={index}
-                    className="cursor-pointer">
+                    className="cursor-pointer basis-[50%]">
                     <div className="p-1 w-full flex justify-center">
                       <Image
                         alt=""
@@ -108,14 +120,264 @@ const IndexPage = () => {
             <CarouselNext />
           </Carousel>
         </section>
-        <section className="main_specialization mt-10 flex justify-between h-auto space-x-4">
-          {aboutInfo.attributes.main_specialization?.map((item) => (
-            <Card className="w-1/5" key={item.id}>
-              <CardContent className="p-4">
-                <div className="font-bold text-xl text-wrap text-center">{item.name}</div>
-              </CardContent>
-            </Card>
-          ))}
+        <section className="main_specialization">
+          <h2 className="uppercase md:text-[40px] xl:text-[48px] font-bold my-20 text-center">
+            {getLabel("about.main-specialization")}
+          </h2>
+          <div className=" mt-10 flex justify-between h-auto space-x-4">
+            {aboutInfo.attributes.main_specialization?.map((item) => (
+              <Card className="w-1/5" key={item.id}>
+                <CardContent className="p-4">
+                  <div className="font-bold text-xl text-wrap text-center">
+                    {item.name}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+        <section className="vision">
+          <h2 className="uppercase md:text-[40px] xl:text-[48px] font-bold my-20 text-center">
+            {getLabel("about.vision")}
+          </h2>
+          <div className="flex justify-between items-center h-auto space-x-10">
+            <div className="flex space-x-4 items-center">
+              <Image
+                src={Vision1}
+                alt=""
+                sizes="100vw"
+                width={200}
+                height={200}
+                className=""
+              />
+              <div className="text-xl font-semibold">
+                {getLabel("about.vision-content-1")}
+              </div>
+            </div>
+            <div className="flex space-x-4 items-center">
+              <Image
+                src={Vision2}
+                alt=""
+                sizes="100vw"
+                width={200}
+                height={200}
+                className=""
+              />
+              <div className="text-xl font-semibold">
+                {getLabel("about.vision-content-2")}
+              </div>
+            </div>
+            <div className="flex space-x-4 items-center">
+              <Image
+                src={Vision1}
+                alt=""
+                sizes="100vw"
+                width={200}
+                height={200}
+                className=""
+              />
+              <div className="text-xl font-semibold">
+                {getLabel("about.vision-content-3")}
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="business-strategy">
+          <h2 className="uppercase md:text-[40px] xl:text-[48px] font-bold my-20 text-center">
+            {getLabel("about.business-strategy")}
+          </h2>
+          <div className="grid grid-cols-2 gap-10">
+            <div className="flex items-center space-x-4">
+              <Image
+                src={Business1}
+                alt=""
+                sizes="100vw"
+                width={200}
+                height={200}
+                className=""
+              />
+              <div className="text-xl font-semibold">
+                {getLabel("about.business-strategy-content-1")}
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Image
+                src={Business2}
+                alt=""
+                sizes="100vw"
+                width={200}
+                height={200}
+                className=""
+              />
+              <div className="text-xl font-semibold">
+                {getLabel("about.business-strategy-content-2")}
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Image
+                src={Business3}
+                alt=""
+                sizes="100vw"
+                width={200}
+                height={200}
+                className=""
+              />
+              <div className="text-xl font-semibold">
+                {getLabel("about.business-strategy-content-3")}
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Image
+                src={Business4}
+                alt=""
+                sizes="100vw"
+                width={200}
+                height={200}
+                className=""
+              />
+              <div className="text-xl font-semibold">
+                {getLabel("about.business-strategy-content-4")}
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="organizational-structure">
+          <h2 className="uppercase md:text-[40px] xl:text-[48px] font-bold my-20 text-center">
+            {getLabel("about.organizational")}
+          </h2>
+          <div>
+            <div className="flex items-center flex-col space-y-1">
+              <Image
+                src={Director1}
+                alt=""
+                sizes="100vw"
+                width={150}
+                height={150}
+                className=""
+              />
+              <div className="text-3xl font-bold">{getLabel("about.organizational-director1")}</div>
+              <div className="text-2xl font-medium">{getLabel("about.organizational-director1.1")}</div>
+              <div className="text-2xl font-medium">{getLabel("about.organizational-director1.2")}</div>
+            </div>
+            <div className="flex items-center justify-between mt-10">
+              <div className="flex items-center flex-col space-y-1 w-[350px]">
+                <Image
+                  src={Director2}
+                  alt=""
+                  sizes="100vw"
+                  width={120}
+                  height={120}
+                  className=""
+                />
+                <div className="text-3xl font-bold">{getLabel("about.organizational-director2")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director2a")}</div>
+              </div>
+              <div className="flex items-center flex-col space-y-1 w-[350px]">
+                <Image
+                  src={Director2}
+                  alt=""
+                  sizes="100vw"
+                  width={120}
+                  height={120}
+                  className=""
+                />
+                <div className="text-3xl font-bold">{getLabel("about.organizational-director2.1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director2.1a")}</div>
+              </div>
+              <div className="flex items-center flex-col space-y-1 w-[350px]">
+                <Image
+                  src={Director2}
+                  alt=""
+                  sizes="100vw"
+                  width={120}
+                  height={120}
+                  className=""
+                />
+                <div className="text-3xl font-bold">{getLabel("about.organizational-director2.2")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director2.2a")}</div>
+              </div>
+            </div>
+            {/* <div className="flex items-center justify-between mt-10 space-x-4">
+              <div className="flex items-center flex-col space-y-1">
+                <Image
+                  src={Director3}
+                  alt=""
+                  sizes="100vw"
+                  width={80}
+                  height={80}
+                  className=""
+                />
+                <div className="text-3xl font-bold">{getLabel("about.organizational-director1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director1.1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director1.2")}</div>
+              </div>
+              <div className="flex items-center flex-col space-y-1">
+                <Image
+                  src={Director3}
+                  alt=""
+                  sizes="100vw"
+                  width={80}
+                  height={80}
+                  className=""
+                />
+                <div className="text-3xl font-bold">{getLabel("about.organizational-director1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director1.1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director1.2")}</div>
+              </div>
+              <div className="flex items-center flex-col space-y-1">
+                <Image
+                  src={Director3}
+                  alt=""
+                  sizes="100vw"
+                  width={80}
+                  height={80}
+                  className=""
+                />
+                <div className="text-3xl font-bold">{getLabel("about.organizational-director1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director1.1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director1.2")}</div>
+              </div>
+              <div className="flex items-center flex-col space-y-1">
+                <Image
+                  src={Director3}
+                  alt=""
+                  sizes="100vw"
+                  width={80}
+                  height={80}
+                  className=""
+                />
+                <div className="text-3xl font-bold">{getLabel("about.organizational-director1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director1.1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director1.2")}</div>
+              </div>
+              <div className="flex items-center flex-col space-y-1">
+                <Image
+                  src={Director3}
+                  alt=""
+                  sizes="100vw"
+                  width={80}
+                  height={80}
+                  className=""
+                />
+                <div className="text-3xl font-bold">{getLabel("about.organizational-director1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director1.1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director1.2")}</div>
+              </div>
+              <div className="flex items-center flex-col space-y-1">
+                <Image
+                  src={Director3}
+                  alt=""
+                  sizes="100vw"
+                  width={80}
+                  height={80}
+                  className=""
+                />
+                <div className="text-3xl font-bold">{getLabel("about.organizational-director1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director1.1")}</div>
+                <div className="text-2xl font-medium">{getLabel("about.organizational-director1.2")}</div>
+              </div>
+            </div> */}
+          </div>
         </section>
       </div>
     </main>

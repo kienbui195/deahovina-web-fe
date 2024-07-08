@@ -134,4 +134,92 @@ export const vi: IMultiLangContentValue[] = [
     key: "section.timeline.label",
     content: `Lịch Sử`,
   },
+  {
+    key: "home.customer-title",
+    content: `Khách hàng`,
+  },
+  {
+    key: "home.project-title",
+    content: `Dự án`,
+  },
+  {
+    key: "about.vision",
+    content: `Tầm nhìn`,
+  },
+  {
+    key: "about.vision-content-1",
+    content: `Chuyên môn kĩ thuật cao`,
+  },
+  {
+    key: "about.vision-content-2",
+    content: `Nơi khách hàng gửi niềm tin`,
+  },
+  {
+    key: "about.vision-content-3",
+    content: `Luôn nỗ lực hết sức`,
+  },
+  {
+    key: "about.business-strategy",
+    content: `Chiến lược kinh doanh`,
+  },
+  {
+    key: "about.main-specialization",
+    content: `Chuyên môn chính`,
+  },
+  {
+    key: "about.business-strategy-content-1",
+    content: `Mục tiêu kinh doanh đạt được 200%`,
+  },
+  {
+    key: "about.business-strategy-content-2",
+    content: `Tăng cường năng lực chuyên môn của nhân viên`,
+  },
+  {
+    key: "about.business-strategy-content-3",
+    content: `Tạo ra công nghệ phát triển tương lai tiên phong`,
+  },
+  {
+    key: "about.business-strategy-content-4",
+    content: `Xây dựng một công ty đoàn kết và vui vẻ`,
+  },
+  {
+    key: "about.organizational",
+    content: `Cơ cấu tổ chức`,
+  },
+  {
+    key: "about.organizational-director1",
+    content: `Tổng Giám đốc`,
+  },
+  {
+    key: "about.organizational-director1.1",
+    content: `Kỹ thuật viên đặc biệt`,
+  },
+  {
+    key: "about.organizational-director1.2",
+    content: `Tổng quản lý kinh doanh`,
+  },
+  {
+    key: "about.organizational-director2",
+    content: `Nhóm Kỹ thuật Hệ thống`,
+  },
+  {
+    key: "about.organizational-director2a",
+    content: `Giải pháp năng lượng`,
+  },
+  {
+    key: "about.organizational-director2.1",
+    content: `Nhóm Kỹ thuật Điện`,
+  },
+  {
+    key: "about.organizational-director2.1a",
+    content: `Thiết kế và Thi công Hiện trường`,
+  },
+  {
+    key: "about.organizational-director2.2",
+    content: `Bộ phận quản lý`,
+  },
+  {
+    key: "about.organizational-director2.2a",
+    content: `Nhân sự`,
+  },
 ];
