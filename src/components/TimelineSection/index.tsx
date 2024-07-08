@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import apis from "@/apis";
-import { createQuery } from "@/lib/utils";
+import { cn, createQuery } from "@/lib/utils";
 import useGetLabel from "@/hooks/useGetLabel";
 import Image from "next/image";
 import { BGTimeline } from "@/lib/svgExport";
@@ -49,13 +49,11 @@ const TimelineSection = () => {
             page: page || pagination.page,
             pageSize: pagination.pageSize,
           },
-          sort: {
-            date: "asc",
-          },
+          sort: ["date:asc"],
           locale: lang,
         })
       )
-      .then(res => {
+      .then((res) => {
         const { data, meta } = res.data;
         const { pagination } = meta;
         let list = [];
@@ -73,9 +71,8 @@ const TimelineSection = () => {
 
         setHistories(page === 1 ? list : histories.concat(list));
         setPagination(pagination);
-
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("[GET_HISTORIES]", err);
       });
   };
@@ -85,7 +82,12 @@ const TimelineSection = () => {
   }, [lang, pathname]);
 
   return (
-    <section className="w-full h-[60vh] relative mt-1">
+    <section
+      className={cn([
+        "w-full h-[60vh] relative mt-1",
+        histories.length > 0 ? "flex" : "hidden",
+      ])}
+    >
       <Image alt="" src={BGTimeline} className="w-full h-full object-fill " />
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
       <div className="font-bold text-white text-2xl absolute p-2 top-4 left-4">
@@ -93,14 +95,16 @@ const TimelineSection = () => {
       </div>
       <div className="absolute top-0 left-0 w-full h-full flex py-8">
         <Chrono
-          items={histories.map(item => ({
+          items={histories.map((item) => ({
             ...item,
-            cardDetailedText: item.cardDetailedText.map((text: string, index: number) => (
-              <div key={index} className="flex flex-row items-center gap-2">
-                <Dot className="w-6 h-6" />
-                <span>{text}</span>
-              </div>
-            )),
+            cardDetailedText: item.cardDetailedText.map(
+              (text: string, index: number) => (
+                <div key={index} className="flex flex-row items-center gap-2">
+                  <Dot className="w-6 h-6" />
+                  <span>{text}</span>
+                </div>
+              )
+            ),
           }))}
           // items={histories}
           disableToolbar={true}

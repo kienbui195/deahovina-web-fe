@@ -134,4 +134,24 @@ export const vi: IMultiLangContentValue[] = [
     key: "section.timeline.label",
     content: `Lịch Sử`,
   },
+  {
+    key: "page.form.contactus.label",
+    content: `Liên hệ với chúng tôi`,
+  },
+  {
+    key: "page.form.contactus.input.name",
+    content: `Tên của ban`,
+  },
+  {
+    key: "page.form.contactus.input.phone",
+    content: `SĐT`,
+  },
+  {
+    key: "page.form.contactus.input.tellToUs",
+    content: `Nói gì đó với chúng tôi`,
+  },
+  {
+    key: "page.form.contactus.button.label",
+    content: `Gửi`,
+  },
 ];

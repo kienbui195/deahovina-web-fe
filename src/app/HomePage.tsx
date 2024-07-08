@@ -47,23 +47,15 @@ export default function Home() {
       <TopBanner data={topBanner} />
       <TimelineSection />
       <SectionSolution />
-      {/* {customerSites.length > 0 && (
-        <div className="lg:dhv-container dhv-container-sm">
-          <section className="mt-[30px]">
-            {customerSites.map((c) => (
-              <ProductCarousel customerSite={c} key={c.id} />
-            ))}
-          </section>
-        </div>
-      )} */}
-        <div className="lg:dhv-container dhv-container-sm">
-          <section className="mt-[30px]">
-            <ProductCarousel />
-          </section>
-          <section className="mt-[30px]">
-            <CustomerCarousel />
-          </section>
-        </div>
+
+      <div className="lg:dhv-container dhv-container-sm">
+        <section className="mt-[30px]">
+          <ProductCarousel />
+        </section>
+        <section className="mt-[30px]">
+          <CustomerCarousel />
+        </section>
+      </div>
     </main>
   );
 }

@@ -122,4 +122,24 @@ export const en: IMultiLangContentValue[] = [
     key: "footer.policy.rules",
     content: `General Policies and Regulations`,
   },
+  {
+    key: "page.form.contactus.label",
+    content: `Contact Us`,
+  },
+  {
+    key: "page.form.contactus.input.name",
+    content: `Your Name`,
+  },
+  {
+    key: "page.form.contactus.input.phone",
+    content: `Your Phone`,
+  },
+  {
+    key: "page.form.contactus.input.tellToUs",
+    content: `Tell something to us`,
+  },
+  {
+    key: "page.form.contactus.button.label",
+    content: `Send`,
+  },
 ];
