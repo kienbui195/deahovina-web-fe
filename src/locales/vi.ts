@@ -223,6 +223,86 @@ export const vi: IMultiLangContentValue[] = [
     content: `Nhân sự`,
   },
   {
+    key: "about.organizational-director3",
+    content: `Kỹ thuật hệ thống`,
+  },
+  {
+    key: "about.organizational-director3a",
+    content: `SCADA`,
+  },
+  {
+    key: "about.organizational-director3b",
+    content: `EMS`,
+  },
+  {
+    key: "about.organizational-director3c",
+    content: `FEMS`,
+  },
+  {
+    key: "about.organizational-director3.1",
+    content: `Kỹ thuật thi công`,
+  },
+  {
+    key: "about.organizational-director3.1a",
+    content: `Xây dựng hệ thống`,
+  },
+  {
+    key: "about.organizational-director3.1b",
+    content: `Giải quyết vấn đề của khách hàng`,
+  },
+  {
+    key: "about.organizational-director3.2",
+    content: `Nhóm thiết kế xây dựng`,
+  },
+  {
+    key: "about.organizational-director3.2a",
+    content: `Xây dựng thông thường`,
+  },
+  {
+    key: "about.organizational-director3.2b",
+    content: `Thiết bị nhà máy`,
+  },
+  {
+    key: "about.organizational-director3.3",
+    content: `Nhóm thiết kế điện`,
+  },
+  {
+    key: "about.organizational-director3.3a",
+    content: `Thiết bị điện`,
+  },
+  {
+    key: "about.organizational-director3.3b",
+    content: `Thiết bị phòng cháy chữa cháy`,
+  },
+  {
+    key: "about.organizational-director3.3c",
+    content: `Thiết bị truyền thông`,
+  },
+  {
+    key: "about.organizational-director3.4",
+    content: `Quản lý Nhân sự`,
+  },
+  {
+    key: "about.organizational-director3.4a",
+    content: `Phúc lợi`,
+  },
+  {
+    key: "about.organizational-director3.4b",
+    content: `Lương nhân sự`,
+  },
+  {
+    key: "about.organizational-director3.5",
+    content: `Quản lý Tổng hợp`,
+  },
+  {
+    key: "about.organizational-director3.5a",
+    content: `Quản lý kế toán`,
+  },
+  {
+    key: "about.organizational-director3.5b",
+    content: `Quản lý chung`,
+  },
+  {
     key: "page.form.contactus.label",
     content: `Liên hệ với chúng tôi`,
   },

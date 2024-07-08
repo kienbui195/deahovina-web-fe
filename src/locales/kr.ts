@@ -190,6 +190,122 @@ export const kr: IMultiLangContentValue[] = [
     content: `조직도`,
   },
   {
+    key: "about.organizational-director1",
+    content: `대 표 이 사`,
+  },
+  {
+    key: "about.organizational-director1.1",
+    content: `전력 특급 기술인`,
+  },
+  {
+    key: "about.organizational-director1.2",
+    content: `경 영 총 괄`,
+  },
+  {
+    key: "about.organizational-director2",
+    content: `시스템 기술팀`,
+  },
+  {
+    key: "about.organizational-director2a",
+    content: `에너지 솔루션`,
+  },
+  {
+    key: "about.organizational-director2.1",
+    content: `전력 기술팀`,
+  },
+  {
+    key: "about.organizational-director2.1a",
+    content: `설계 및 현장 시공`,
+  },
+  {
+    key: "about.organizational-director2.2",
+    content: `관리팀`,
+  },
+  {
+    key: "about.organizational-director2.2a",
+    content: `인사,노무`,
+  },
+  {
+    key: "about.organizational-director3",
+    content: `시스템 기술`,
+  },
+  {
+    key: "about.organizational-director3a",
+    content: `SCADA`,
+  },
+  {
+    key: "about.organizational-director3b",
+    content: `EMS`,
+  },
+  {
+    key: "about.organizational-director3c",
+    content: `FEMS`,
+  },
+  {
+    key: "about.organizational-director3.1",
+    content: `시공 기술`,
+  },
+  {
+    key: "about.organizational-director3.1a",
+    content: `시스템 구축`,
+  },
+  {
+    key: "about.organizational-director3.1b",
+    content: `고객사 대응`,
+  },
+  {
+    key: "about.organizational-director3.2",
+    content: `건축 설계팀`,
+  },
+  {
+    key: "about.organizational-director3.2a",
+    content: `일반 건축`,
+  },
+  {
+    key: "about.organizational-director3.2b",
+    content: `플랜트 설비`,
+  },
+  {
+    key: "about.organizational-director3.3",
+    content: `전기 설계팀`,
+  },
+  {
+    key: "about.organizational-director3.3a",
+    content: `전력 설비`,
+  },
+  {
+    key: "about.organizational-director3.3b",
+    content: `소방 설비`,
+  },
+  {
+    key: "about.organizational-director3.3c",
+    content: `통신 설비`,
+  },
+  {
+    key: "about.organizational-director3.4",
+    content: `인사팀`,
+  },
+  {
+    key: "about.organizational-director3.4a",
+    content: `급여, 복지`,
+  },
+  {
+    key: "about.organizational-director3.4b",
+    content: `인사관리`,
+  },
+  {
+    key: "about.organizational-director3.5",
+    content: `총무, 회계`,
+  },
+  {
+    key: "about.organizational-director3.5a",
+    content: `총무관리`,
+  },
+  {
+    key: "about.organizational-director3.5b",
+    content: `회계관리`,
+  },
+  {
     key: "page.form.contactus.label",
     content: `문의하기`,
   },
