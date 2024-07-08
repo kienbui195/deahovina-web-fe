@@ -139,6 +139,174 @@ export const vi: IMultiLangContentValue[] = [
     content: `Hoạt động`,
   },
   {
+    key: "home.customer-title",
+    content: `Khách hàng`,
+  },
+  {
+    key: "home.project-title",
+    content: `Dự án`,
+  },
+  {
+    key: "about.vision",
+    content: `Tầm nhìn`,
+  },
+  {
+    key: "about.vision-content-1",
+    content: `Chuyên môn kĩ thuật cao`,
+  },
+  {
+    key: "about.vision-content-2",
+    content: `Nơi khách hàng gửi niềm tin`,
+  },
+  {
+    key: "about.vision-content-3",
+    content: `Luôn nỗ lực hết sức`,
+  },
+  {
+    key: "about.business-strategy",
+    content: `Chiến lược kinh doanh`,
+  },
+  {
+    key: "about.main-specialization",
+    content: `Chuyên môn chính`,
+  },
+  {
+    key: "about.business-strategy-content-1",
+    content: `Mục tiêu kinh doanh đạt được 200%`,
+  },
+  {
+    key: "about.business-strategy-content-2",
+    content: `Tăng cường năng lực chuyên môn của nhân viên`,
+  },
+  {
+    key: "about.business-strategy-content-3",
+    content: `Tạo ra công nghệ phát triển tương lai tiên phong`,
+  },
+  {
+    key: "about.business-strategy-content-4",
+    content: `Xây dựng một công ty đoàn kết và vui vẻ`,
+  },
+  {
+    key: "about.organizational",
+    content: `Cơ cấu tổ chức`,
+  },
+  {
+    key: "about.organizational-director1",
+    content: `Tổng Giám đốc`,
+  },
+  {
+    key: "about.organizational-director1.1",
+    content: `Kỹ thuật viên đặc biệt`,
+  },
+  {
+    key: "about.organizational-director1.2",
+    content: `Tổng quản lý kinh doanh`,
+  },
+  {
+    key: "about.organizational-director2",
+    content: `Nhóm Kỹ thuật Hệ thống`,
+  },
+  {
+    key: "about.organizational-director2a",
+    content: `Giải pháp năng lượng`,
+  },
+  {
+    key: "about.organizational-director2.1",
+    content: `Nhóm Kỹ thuật Điện`,
+  },
+  {
+    key: "about.organizational-director2.1a",
+    content: `Thiết kế và Thi công Hiện trường`,
+  },
+  {
+    key: "about.organizational-director2.2",
+    content: `Bộ phận quản lý`,
+  },
+  {
+    key: "about.organizational-director2.2a",
+    content: `Nhân sự`,
+  },
+  {
+    key: "about.organizational-director3",
+    content: `Kỹ thuật hệ thống`,
+  },
+  {
+    key: "about.organizational-director3a",
+    content: `SCADA`,
+  },
+  {
+    key: "about.organizational-director3b",
+    content: `EMS`,
+  },
+  {
+    key: "about.organizational-director3c",
+    content: `FEMS`,
+  },
+  {
+    key: "about.organizational-director3.1",
+    content: `Kỹ thuật thi công`,
+  },
+  {
+    key: "about.organizational-director3.1a",
+    content: `Xây dựng hệ thống`,
+  },
+  {
+    key: "about.organizational-director3.1b",
+    content: `Giải quyết vấn đề của khách hàng`,
+  },
+  {
+    key: "about.organizational-director3.2",
+    content: `Nhóm thiết kế xây dựng`,
+  },
+  {
+    key: "about.organizational-director3.2a",
+    content: `Xây dựng thông thường`,
+  },
+  {
+    key: "about.organizational-director3.2b",
+    content: `Thiết bị nhà máy`,
+  },
+  {
+    key: "about.organizational-director3.3",
+    content: `Nhóm thiết kế điện`,
+  },
+  {
+    key: "about.organizational-director3.3a",
+    content: `Thiết bị điện`,
+  },
+  {
+    key: "about.organizational-director3.3b",
+    content: `Thiết bị phòng cháy chữa cháy`,
+  },
+  {
+    key: "about.organizational-director3.3c",
+    content: `Thiết bị truyền thông`,
+  },
+  {
+    key: "about.organizational-director3.4",
+    content: `Quản lý Nhân sự`,
+  },
+  {
+    key: "about.organizational-director3.4a",
+    content: `Phúc lợi`,
+  },
+  {
+    key: "about.organizational-director3.4b",
+    content: `Lương nhân sự`,
+  },
+  {
+    key: "about.organizational-director3.5",
+    content: `Quản lý Tổng hợp`,
+  },
+  {
+    key: "about.organizational-director3.5a",
+    content: `Quản lý kế toán`,
+  },
+  {
+    key: "about.organizational-director3.5b",
+    content: `Quản lý chung`,
+  },
+  {
     key: "page.form.contactus.label",
     content: `Liên hệ với chúng tôi`,
   },
@@ -160,6 +328,6 @@ export const vi: IMultiLangContentValue[] = [
   },
   {
     key: "common.page.changeLang",
-    content: "Chờ một chút! Đang chuyển đổi ngôn ngữ"
-  }
+    content: "Chờ một chút! Đang chuyển đổi ngôn ngữ",
+  },
 ];

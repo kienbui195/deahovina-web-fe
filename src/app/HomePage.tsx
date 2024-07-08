@@ -47,15 +47,14 @@ export default function Home() {
       <TopBanner data={topBanner} />
       <TimelineSection />
       <SectionSolution />
-
-      <div className="lg:dhv-container dhv-container-sm">
-        <section className="mt-[30px]">
-          <ProductCarousel />
-        </section>
-        <section className="mt-[30px]">
-          <CustomerCarousel />
-        </section>
-      </div>
+        <div className="lg:dhv-container dhv-container-sm">
+          <section className="mt-[30px]">
+            <ProductCarousel />
+          </section>
+          <section className="mt-[30px]">
+            <CustomerCarousel />
+          </section>
+        </div>
     </main>
   );
 }

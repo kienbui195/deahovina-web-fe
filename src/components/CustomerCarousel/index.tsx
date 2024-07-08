@@ -15,12 +15,14 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { ICustomerSite } from "@/dataTypes";
 import { DefaultThumbnail2 } from "@/lib/svgExport";
+import useGetLabel from "@/hooks/useGetLabel";
 
 const CustomerCarousel = ({
 }: {
 }) => {
   const [customerSites, setCustomerSites] = useState<ICustomerSite[]>([]);
   const settingLang = useSelector((state: RootState) => state.contentLang.lang);
+  const { getLabel } = useGetLabel();
 
   const getCustomerSites = () => {
     apis
@@ -54,7 +56,7 @@ const CustomerCarousel = ({
         <div className="absolute top-0 left-0 bg-white border border-slate-200 p-[6px_18px] h-full flex flex-row items-center space-x-4">
           <AlignJustify className="w-6 h-6" />
           <span className="text-blue-600 uppercase font-bold">
-            Khách hàng
+            {getLabel("home.customer-title")}
           </span>
         </div>
         <div className="w-full h-full flex flex-row items-center">

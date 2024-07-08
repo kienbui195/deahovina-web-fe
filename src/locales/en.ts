@@ -127,6 +127,174 @@ export const en: IMultiLangContentValue[] = [
     content: `General Policies and Regulations`,
   },
   {
+    key: "home.customer-title",
+    content: `Customer`,
+  },
+  {
+    key: "home.project-title",
+    content: `Project`,
+  },
+  {
+    key: "about.vision",
+    content: `Vision`,
+  },
+  {
+    key: "about.vision-content-1",
+    content: `High technical expertise`,
+  },
+  {
+    key: "about.vision-content-2",
+    content: `Where customers put their trust`,
+  },
+  {
+    key: "about.vision-content-3",
+    content: `Always try our best`,
+  },
+  {
+    key: "about.business-strategy",
+    content: `Business strategy`,
+  },
+  {
+    key: "about.main-specialization",
+    content: `Main specialization`,
+  },
+  {
+    key: "about.business-strategy-content-1",
+    content: `Business Goal Achieved 200%`,
+  },
+  {
+    key: "about.business-strategy-content-2",
+    content: `Enhance Employee Professional Competency`,
+  },
+  {
+    key: "about.business-strategy-content-3",
+    content: `Create Pioneering Future Development Technology`,
+  },
+  {
+    key: "about.business-strategy-content-4",
+    content: `Build a United and Fun Company`,
+  },
+  {
+    key: "about.organizational",
+    content: `Organizational structure`,
+  },
+  {
+    key: "about.organizational-director1",
+    content: `General Manager`,
+  },
+  {
+    key: "about.organizational-director1.1",
+    content: `Special Engineer`,
+  },
+  {
+    key: "about.organizational-director1.2",
+    content: `General Business Manager`,
+  },
+  {
+    key: "about.organizational-director2",
+    content: `System Engineering Group`,
+  },
+  {
+    key: "about.organizational-director2a",
+    content: `Energy Solutions`,
+  },
+  {
+    key: "about.organizational-director2.1",
+    content: `Electrical Engineering Group`,
+  },
+  {
+    key: "about.organizational-director2.1a",
+    content: `Site Design and Construction`,
+  },
+  {
+    key: "about.organizational-director2.2",
+    content: `Management Department`,
+  },
+  {
+    key: "about.organizational-director2.2a",
+    content: `Human Resources`,
+  },
+  {
+    key: "about.organizational-director3",
+    content: `System Engineering`,
+  },
+  {
+    key: "about.organizational-director3a",
+    content: `SCADA`,
+  },
+  {
+    key: "about.organizational-director3b",
+    content: `EMS`,
+  },
+  {
+    key: "about.organizational-director3c",
+    content: `FEMS`,
+  },
+  {
+    key: "about.organizational-director3.1",
+    content: `Construction Engineering`,
+  },
+  {
+    key: "about.organizational-director3.1a",
+    content: `System Construction`,
+  },
+  {
+    key: "about.organizational-director3.1b",
+    content: `Customer Problem Solving`,
+  },
+  {
+    key: "about.organizational-director3.2",
+    content: `Construction Design Group`,
+  },
+  {
+    key: "about.organizational-director3.2a",
+    content: `General Construction`,
+  },
+  {
+    key: "about.organizational-director3.2b",
+    content: `Plant Equipment`,
+  },
+  {
+    key: "about.organizational-director3.3",
+    content: `Electrical Design Group`,
+  },
+  {
+    key: "about.organizational-director3.3a",
+    content: `Electrical Equipment`,
+  },
+  {
+    key: "about.organizational-director3.3b",
+    content: `Fire Protection Equipment`,
+  },
+  {
+    key: "about.organizational-director3.3c",
+    content: `Communication Equipment`,
+  },
+  {
+    key: "about.organizational-director3.4",
+    content: `Human Resources Management`,
+  },
+  {
+    key: "about.organizational-director3.4a",
+    content: `Benefits`,
+  },
+  {
+    key: "about.organizational-director3.4b",
+    content: `Personnel Salaries`,
+  },
+  {
+    key: "about.organizational-director3.5",
+    content: `General Management`,
+  },
+  {
+    key: "about.organizational-director3.5a",
+    content: `Accounting Management`,
+  },
+  {
+    key: "about.organizational-director3.5b",
+    content: `General Management`,
+  },
+  {
     key: "page.form.contactus.label",
     content: `Contact Us`,
   },
