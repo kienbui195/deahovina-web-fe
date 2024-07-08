@@ -332,5 +332,13 @@ export const kr: IMultiLangContentValue[] = [
   {
     key: "common.page.changeLang",
     content: "잠깐 기다려요! 언어 전환"
-  }
+  },
+  {
+    key: "about.factory-structure",
+    content: "공장 시스템 구조",
+  },
+  {
+    key: "about.factory-structure-content",
+    content: "네트워크 인프라에는 PLC가 서버로 데이터를 전송하기 위해 고정 IP와 개방형 포트 5535가 필요합니다. 공장 네트워크 보안을 보장하려면 공장 IT와 네트워크 연결 솔루션을 논의해야 합니다.",
+  },
 ];

@@ -24,6 +24,7 @@ import Business4 from '@/assets/images/Picture8.png'
 import Director1 from '@/assets/images/Picture10.png'
 import Director2 from '@/assets/images/Picture11.png'
 import Director3 from '@/assets/images/Picture12.png'
+import FactoryStructure from '@/assets/images/factory-structure.png'
 
 export {
   VietnamFlagIcon,
@@ -52,5 +53,6 @@ export {
   Director1,
   Director2,
   Director3,
+  FactoryStructure,
 };
  

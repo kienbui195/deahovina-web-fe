@@ -330,4 +330,12 @@ export const vi: IMultiLangContentValue[] = [
     key: "common.page.changeLang",
     content: "Chờ một chút! Đang chuyển đổi ngôn ngữ",
   },
+  {
+    key: "about.factory-structure",
+    content: "Cấu trúc hệ thống nhà máy",
+  },
+  {
+    key: "about.factory-structure-content",
+    content: "Hạ tầng mạng cần IP tĩnh và mở port 5535 để các PLC truyền dữ liệu lên server, giải pháp kết nối mạng cần trao đổi với IT nhà máy để đảm bảo an ninh mạng nhà máy.",
+  },
 ];
