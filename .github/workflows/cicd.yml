@@ -29,4 +29,4 @@ jobs:
             echo "NEXT_PUBLIC_BE_API=https://admin.kiendev.click/api" >> .env
             echo "NEXT_PUBLIC_BE=https://admin.kiendev.click" >> .env
             npm run build
-            pm2 restart FirstProj
+            pm2 restart FE
