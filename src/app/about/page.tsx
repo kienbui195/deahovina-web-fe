@@ -20,6 +20,7 @@ import {
   Director1,
   Director2,
   Director3,
+  FactoryStructure,
   Vision1,
   Vision2,
 } from "@/lib/svgExport";
@@ -78,7 +79,7 @@ const IndexPage = () => {
     <main className="flex flex-col items-stretch">
       <section className="hero-banner mt-10">
         <div className="h-40 bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
-          <div className="text-white font-bold text-center">
+          <div className="text-white font-bold text-center text-xl sm:text-2xl md:text-3xl">
             {aboutInfo.attributes.about_info?.hero_title}
           </div>
         </div>
@@ -97,7 +98,7 @@ const IndexPage = () => {
                 (img, index) => (
                   <CarouselItem
                     key={index}
-                    className="cursor-pointer basis-[50%]">
+                    className="cursor-pointer lg:basis-[45%] sm:basis[90%]">
                     <div className="p-1 w-full flex justify-center">
                       <Image
                         alt=""
@@ -121,14 +122,14 @@ const IndexPage = () => {
           </Carousel>
         </section>
         <section className="main_specialization">
-          <h2 className="uppercase md:text-[40px] xl:text-[48px] font-bold my-20 text-center">
+          <h2 className="uppercase text-[24px] sm:text-[36px] lg:text-[48px] font-bold my-5 sm:my-10 md:my-20 text-center">
             {getLabel("about.main-specialization")}
           </h2>
-          <div className=" mt-10 flex justify-between h-auto space-x-4">
+          <div className="mt-10 grid lg:grid-cols-5 md:grid-cols-1 h-auto gap-4">
             {aboutInfo.attributes.main_specialization?.map((item) => (
-              <Card className="w-1/5" key={item.id}>
+              <Card className="" key={item.id}>
                 <CardContent className="p-4">
-                  <div className="font-bold text-xl text-wrap text-center">
+                  <div className="font-bold md:text-xl text-xs text-wrap text-center">
                     {item.name}
                   </div>
                 </CardContent>
@@ -137,112 +138,112 @@ const IndexPage = () => {
           </div>
         </section>
         <section className="vision">
-          <h2 className="uppercase md:text-[40px] xl:text-[48px] font-bold my-20 text-center">
+          <h2 className="uppercase text-[24px] sm:text-[36px] xl:text-[48px] font-bold my-5 sm:my-10 md:my-20 text-center">
             {getLabel("about.vision")}
           </h2>
-          <div className="flex justify-between items-center h-auto space-x-10">
-            <div className="flex space-x-4 items-center">
+          <div className="grid lg:grid-cols-3 md:grid-cols-1 h-auto gap-4">
+            <div className="flex space-x-4 items-center justify-center w-full">
               <Image
                 src={Vision1}
                 alt=""
                 sizes="100vw"
-                width={200}
-                height={200}
-                className=""
+                width={0}
+                height={0}
+                className="w-[100px] sm:w-[150px] md:w-[200px]"
               />
-              <div className="text-xl font-semibold">
+              <div className="md:text-xl text-xs font-semibold w-1/3">
                 {getLabel("about.vision-content-1")}
               </div>
             </div>
-            <div className="flex space-x-4 items-center">
+            <div className="flex space-x-4 items-center justify-center w-full">
               <Image
                 src={Vision2}
                 alt=""
                 sizes="100vw"
-                width={200}
-                height={200}
-                className=""
+                width={0}
+                height={0}
+                className="w-[100px] sm:w-[150px] md:w-[200px]"
               />
-              <div className="text-xl font-semibold">
+              <div className="md:text-xl text-xs font-semibold w-1/3">
                 {getLabel("about.vision-content-2")}
               </div>
             </div>
-            <div className="flex space-x-4 items-center">
+            <div className="flex space-x-4 items-center justify-center w-full">
               <Image
                 src={Vision1}
                 alt=""
                 sizes="100vw"
-                width={200}
-                height={200}
-                className=""
+                width={0}
+                height={0}
+                className="w-[100px] sm:w-[150px] md:w-[200px]"
               />
-              <div className="text-xl font-semibold">
+              <div className="md:text-xl text-xs font-semibold w-1/3">
                 {getLabel("about.vision-content-3")}
               </div>
             </div>
           </div>
         </section>
         <section className="business-strategy">
-          <h2 className="uppercase md:text-[40px] xl:text-[48px] font-bold my-20 text-center">
+          <h2 className="uppercase text-[24px] sm:text-[36px] xl:text-[48px] font-bold my-5 sm:my-10 md:my-20 text-center">
             {getLabel("about.business-strategy")}
           </h2>
-          <div className="grid grid-cols-2 gap-10">
-            <div className="flex items-center space-x-4">
+          <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-10">
+            <div className="flex items-center space-x-4 justify-center">
               <Image
                 src={Business1}
                 alt=""
                 sizes="100vw"
-                width={200}
-                height={200}
-                className=""
+                width={0}
+                height={0}
+                className="lg:w-[200px] sm:w-[150px] w-[100px]"
               />
-              <div className="text-xl font-semibold">
+              <div className="md:text-xl text-xs font-semibold w-2/3">
                 {getLabel("about.business-strategy-content-1")}
               </div>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 justify-center">
               <Image
                 src={Business2}
                 alt=""
                 sizes="100vw"
-                width={200}
-                height={200}
-                className=""
+                width={0}
+                height={0}
+                className="lg:w-[200px] sm:w-[150px] w-[100px]"
               />
-              <div className="text-xl font-semibold">
+              <div className="md:text-xl text-xs font-semibold w-2/3">
                 {getLabel("about.business-strategy-content-2")}
               </div>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 justify-center">
               <Image
                 src={Business3}
                 alt=""
                 sizes="100vw"
-                width={200}
-                height={200}
-                className=""
+                width={0}
+                height={0}
+                className="lg:w-[200px] sm:w-[150px] w-[100px]"
               />
-              <div className="text-xl font-semibold">
+              <div className="md:text-xl text-xs font-semibold w-2/3">
                 {getLabel("about.business-strategy-content-3")}
               </div>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 justify-center">
               <Image
                 src={Business4}
                 alt=""
                 sizes="100vw"
-                width={200}
-                height={200}
-                className=""
+                width={0}
+                height={0}
+                className="lg:w-[200px] sm:w-[150px] w-[100px]"
               />
-              <div className="text-xl font-semibold">
+              <div className="md:text-xl text-xs font-semibold w-2/3">
                 {getLabel("about.business-strategy-content-4")}
               </div>
             </div>
           </div>
         </section>
         <section className="organizational-structure">
-          <h2 className="uppercase md:text-[40px] xl:text-[48px] font-bold my-20 text-center">
+          <h2 className="uppercase text-[24px] sm:text-[36px] xl:text-[48px] font-bold my-5 sm:my-10 md:my-20 text-center">
             {getLabel("about.organizational")}
           </h2>
           <div>
@@ -255,12 +256,12 @@ const IndexPage = () => {
                 height={150}
                 className=""
               />
-              <div className="text-3xl font-bold">{getLabel("about.organizational-director1")}</div>
-              <div className="text-2xl font-medium">{getLabel("about.organizational-director1.1")}</div>
-              <div className="text-2xl font-medium">{getLabel("about.organizational-director1.2")}</div>
+              <div className="md:text-3xl sm:text-sm font-bold">{getLabel("about.organizational-director1")}</div>
+              <div className="md:text-2xl sm:text-sm text-xs font-medium">{getLabel("about.organizational-director1.1")}</div>
+              <div className="md:text-2xl sm:text-sm text-xs font-medium">{getLabel("about.organizational-director1.2")}</div>
             </div>
-            <div className="flex items-center justify-between mt-10">
-              <div className="flex items-center flex-col space-y-1 w-[350px]">
+            <div className="grid grid-cols-3 justify-between mt-10 gap-4">
+              <div className="flex items-center flex-col space-y-1">
                 <Image
                   src={Director2}
                   alt=""
@@ -269,10 +270,10 @@ const IndexPage = () => {
                   height={120}
                   className=""
                 />
-                <div className="text-3xl text-center font-bold">{getLabel("about.organizational-director2")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director2a")}</div>
+                <div className="md:text-3xl sm:text-sm text-center font-bold">{getLabel("about.organizational-director2")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director2a")}</div>
               </div>
-              <div className="flex items-center flex-col space-y-1 w-[350px]">
+              <div className="flex items-center flex-col space-y-1">
                 <Image
                   src={Director2}
                   alt=""
@@ -281,10 +282,10 @@ const IndexPage = () => {
                   height={120}
                   className=""
                 />
-                <div className="text-3xl text-center font-bold">{getLabel("about.organizational-director2.1")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director2.1a")}</div>
+                <div className="md:text-3xl sm:text-sm text-center font-bold">{getLabel("about.organizational-director2.1")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director2.1a")}</div>
               </div>
-              <div className="flex items-center flex-col space-y-1 w-[350px]">
+              <div className="flex items-center flex-col space-y-1">
                 <Image
                   src={Director2}
                   alt=""
@@ -293,11 +294,11 @@ const IndexPage = () => {
                   height={120}
                   className=""
                 />
-                <div className="text-3xl text-center font-bold">{getLabel("about.organizational-director2.2")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director2.2a")}</div>
+                <div className="md:text-3xl sm:text-sm text-center font-bold">{getLabel("about.organizational-director2.2")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director2.2a")}</div>
               </div>
             </div>
-            <div className="flex justify-between mt-10 space-x-4">
+            <div className="grid sm:grid-cols-6 grid-cols-3 justify-between mt-10 space-x-4">
               <div className="flex items-center flex-col space-y-1 justify-start h-full">
                 <Image
                   src={Director3}
@@ -307,10 +308,10 @@ const IndexPage = () => {
                   height={80}
                   className=""
                 />
-                <div className="text-3xl text-center font-bold">{getLabel("about.organizational-director3")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3a")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3b")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3c")}</div>
+                <div className="md:text-3xl sm:text-sm text-center font-bold">{getLabel("about.organizational-director3")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3a")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3b")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3c")}</div>
               </div>
               <div className="flex items-center flex-col space-y-1 justify-start h-full">
                 <Image
@@ -321,9 +322,9 @@ const IndexPage = () => {
                   height={80}
                   className=""
                 />
-                <div className="text-3xl text-center font-bold">{getLabel("about.organizational-director3.1")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3.1a")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3.1b")}</div>
+                <div className="md:text-3xl sm:text-sm text-center font-bold">{getLabel("about.organizational-director3.1")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3.1a")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3.1b")}</div>
               </div>
               <div className="flex items-center flex-col space-y-1 justify-start h-full">
                 <Image
@@ -334,9 +335,9 @@ const IndexPage = () => {
                   height={80}
                   className=""
                 />
-                <div className="text-3xl text-center font-bold">{getLabel("about.organizational-director3.2")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3.2a")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3.2b")}</div>
+                <div className="md:text-3xl sm:text-sm text-center font-bold">{getLabel("about.organizational-director3.2")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3.2a")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3.2b")}</div>
               </div>
               <div className="flex items-center flex-col space-y-1 justify-start h-full">
                 <Image
@@ -347,10 +348,10 @@ const IndexPage = () => {
                   height={80}
                   className=""
                 />
-                <div className="text-3xl text-center font-bold">{getLabel("about.organizational-director3.3")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3.3a")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3.3b")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3.3c")}</div>
+                <div className="md:text-3xl sm:text-sm text-center font-bold">{getLabel("about.organizational-director3.3")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3.3a")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3.3b")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3.3c")}</div>
               </div>
               <div className="flex items-center flex-col space-y-1 justify-start h-full">
                 <Image
@@ -361,9 +362,9 @@ const IndexPage = () => {
                   height={80}
                   className=""
                 />
-                <div className="text-3xl text-center font-bold">{getLabel("about.organizational-director3.4")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3.4a")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3.4b")}</div>
+                <div className="md:text-3xl sm:text-sm text-center font-bold">{getLabel("about.organizational-director3.4")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3.4a")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3.4b")}</div>
               </div>
               <div className="flex items-center flex-col space-y-1 justify-start h-full">
                 <Image
@@ -374,11 +375,29 @@ const IndexPage = () => {
                   height={80}
                   className=""
                 />
-                <div className="text-3xl text-center font-bold">{getLabel("about.organizational-director3.5")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3.5a")}</div>
-                <div className="text-2xl text-center font-medium">{getLabel("about.organizational-director3.5b")}</div>
+                <div className="md:text-3xl sm:text-sm text-center font-bold">{getLabel("about.organizational-director3.5")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3.5a")}</div>
+                <div className="md:text-2xl sm:text-sm text-xs text-center font-medium">{getLabel("about.organizational-director3.5b")}</div>
               </div>
             </div>
+          </div>
+        </section>
+        <section className="factory-structure">
+          <h2 className="uppercase text-[24px] sm:text-[36px] xl:text-[48px] font-bold my-5 sm:my-10 md:my-20 text-center">
+            {getLabel("about.factory-structure")}
+          </h2>
+          <div className="flex items-center justify-center">
+            <Image
+              src={FactoryStructure}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="object-cover"
+              alt=""
+            />
+          </div>
+          <div className="mt-10 text-sm sm:text-xl md:text-2xl">
+            {getLabel("about.factory-structure-content")}
           </div>
         </section>
       </div>

@@ -317,5 +317,13 @@ export const en: IMultiLangContentValue[] = [
   {
     key: "common.page.changeLang",
     content: "Wait a minute! Switching language"
-  }
+  },
+  {
+    key: "about.factory-structure",
+    content: "Factory system structure",
+  },
+  {
+    key: "about.factory-structure-content",
+    content: "Network infrastructure needs static IP and open port 5535 for PLCs to transmit data to the server, network connection solution needs to communicate with factory IT to ensure factory network security.",
+  },
 ];
