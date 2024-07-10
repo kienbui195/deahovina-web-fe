@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { PluginAPI } from "tailwindcss/types/config";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
@@ -78,7 +79,22 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }: PluginAPI) {
+      addUtilities({
+        ".dhv-container": {
+          maxWidth: "1350px",
+          width: '100%',
+          margin: 'auto'
+        },
+
+        ".dhv-container-sm": {
+          padding: "0 8px",
+        },
+      });
+    },
+  ],
 } satisfies Config;
 
 export default config;

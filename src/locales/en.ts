@@ -326,4 +326,28 @@ export const en: IMultiLangContentValue[] = [
     key: "about.factory-structure-content",
     content: "Network infrastructure needs static IP and open port 5535 for PLCs to transmit data to the server, network connection solution needs to communicate with factory IT to ensure factory network security.",
   },
+  {
+    key: "product.button.loadmore",
+    content: "More",
+  },
+  {
+    key: "product.content.empty",
+    content: "Items not found.",
+  },
+  {
+    key: "product.content.brand.label",
+    content: "About",
+  },
+  {
+    key: "product.content.category.label",
+    content: "The products of the same category",
+  },
+  {
+    key: "404.label",
+    content: "THE PAGE YOU WERE LOOKING FOR DOESN'T EXIST.",
+  },
+  {
+    key: "error.message",
+    content: "Something went wrong! Please try again later!",
+  },
 ];

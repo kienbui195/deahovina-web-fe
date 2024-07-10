@@ -341,4 +341,28 @@ export const kr: IMultiLangContentValue[] = [
     key: "about.factory-structure-content",
     content: "네트워크 인프라에는 PLC가 서버로 데이터를 전송하기 위해 고정 IP와 개방형 포트 5535가 필요합니다. 공장 네트워크 보안을 보장하려면 공장 IT와 네트워크 연결 솔루션을 논의해야 합니다.",
   },
+  {
+    key: "product.button.loadmore",
+    content: "더보기",
+  },
+  {
+    key: "product.content.empty",
+    content: "상품을 찾을 수 없습니다.",
+  },
+  {
+    key: "product.content.brand.label",
+    content: "~에 대한",
+  },
+  {
+    key: "product.content.category.label",
+    content: "같은 카테고리의 제품",
+  },
+  {
+    key: "404.label",
+    content: "귀하가 찾고 있는 페이지가 존재하지 않습니다.",
+  },
+  {
+    key: "error.message",
+    content: "문제가 발생했습니다. 나중에 다시 시도 해주십시오!",
+  },
 ];

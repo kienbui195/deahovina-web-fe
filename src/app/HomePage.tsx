@@ -1,8 +1,6 @@
 "use client";
 
-import SectionInfo from "@/components/SectionInfo";
-import SectionNews from "@/components/SectionNews";
-import { ICustomerSite, IGlobalData, ITopBanner } from "@/dataTypes";
+import { IGlobalData, ITopBanner } from "@/dataTypes";
 import { useEffect, useState } from "react";
 import TopBanner from "@/components/TopBanner";
 import apis from "@/apis";
@@ -45,7 +43,6 @@ export default function Home() {
   return (
     <main className="flex flex-col items-stretch">
       <TopBanner data={topBanner} />
-      <div className="mt-10"></div>
       <TimelineSection />
       <SectionSolution />
         <div className="lg:dhv-container dhv-container-sm">

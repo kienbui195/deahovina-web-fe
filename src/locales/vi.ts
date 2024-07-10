@@ -336,6 +336,31 @@ export const vi: IMultiLangContentValue[] = [
   },
   {
     key: "about.factory-structure-content",
-    content: "Hạ tầng mạng cần IP tĩnh và mở port 5535 để các PLC truyền dữ liệu lên server, giải pháp kết nối mạng cần trao đổi với IT nhà máy để đảm bảo an ninh mạng nhà máy.",
+    content:
+      "Hạ tầng mạng cần IP tĩnh và mở port 5535 để các PLC truyền dữ liệu lên server, giải pháp kết nối mạng cần trao đổi với IT nhà máy để đảm bảo an ninh mạng nhà máy.",
+  },
+  {
+    key: "product.button.loadmore",
+    content: "Xem thêm",
+  },
+  {
+    key: "product.content.empty",
+    content: "Không tìm thấy sản phẩm nào.",
+  },
+  {
+    key: "product.content.brand.label",
+    content: "Về",
+  },
+  {
+    key: "product.content.category.label",
+    content: "Các sản phẩm cùng danh mục",
+  },
+  {
+    key: "404.label",
+    content: "TRANG BẠN TÌM KIẾM KHÔNG Tồn tại.",
+  },
+  {
+    key: "error.message",
+    content: "Đã xảy ra lỗi! Vui lòng thử lại sau!",
   },
 ];

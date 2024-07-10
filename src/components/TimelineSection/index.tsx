@@ -85,16 +85,16 @@ const TimelineSection = () => {
   return (
     <section
       className={cn([
-        "w-full h-[60vh] relative mt-1",
+        "w-full h-[60vh] relative mt-10",
         histories.length > 0 ? "flex" : "hidden",
       ])}
     >
       <Image alt="" src={BGTimeline} className="w-full h-full object-fill " />
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-25"></div>
-      <div className="font-bold text-white text-2xl absolute p-2 top-4 left-4">
+      <div className="font-bold text-white sm:text-2xl text-lg absolute p-2 top-4 left-4">
         {getLabel("section.timeline.label")}
       </div>
-      <div className="absolute top-0 left-0 w-full h-full flex py-8 justify-center px-10">
+      <div className="absolute sm:top-0 top-6 left-0 w-full h-full flex py-8 justify-center px-10">
         <ScrollArea className="max-h-[90vh] h-full w-full">
           <Timeline style={{ width: "100%", maxWidth: "1060px" }}>
             {histories.map((item, idx) => {
@@ -110,15 +110,13 @@ const TimelineSection = () => {
                   }}
                   subtitle={item.cardTitle}
                   container={"card"}
-                  icon={<Dot className="w-full h-full"/>}
                 >
                   {item.cardDetailedText.map((text: string, index: number) => (
-                    <div
-                      key={index}
-                      className="flex flex-row items-center gap-2 w-full"
-                    >
-                      <Dot className="w-6 h-6" />
-                      <span>{text}</span>
+                    <div key={index} className="flex flex-row gap-1 w-full">
+                      <div className="w-4 h-4">
+                        <Dot className="w-4 h-4" />
+                      </div>
+                      <div>{text}</div>
                     </div>
                   ))}
                 </TimelineEvent>

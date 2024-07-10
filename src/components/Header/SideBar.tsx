@@ -21,7 +21,7 @@ const SideBar = ({ className }: { className?: string }) => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button className={cn(["", className])}>
+        <Button variant={'outline'} className={cn(["", className])}>
           <Menu className="w-6 h-6" />
         </Button>
       </SheetTrigger>

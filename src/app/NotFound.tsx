@@ -1,7 +1,12 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
+import useGetLabel from "@/hooks/useGetLabel";
 
 const NotFound = () => {
+  const { getLabel } = useGetLabel();
+
   return (
     <div className="nc-Page404">
       <div className="container relative py-16 lg:py-20">
@@ -11,8 +16,8 @@ const NotFound = () => {
           <h1 className="text-8xl lg:text-9xl font-semibold tracking-widest">
             404
           </h1>
-          <span className="block text-sm text-neutral-800 lg:text-base tracking-wider font-medium">
-            {`THE PAGE YOU WERE LOOKING FOR DOESN'T EXIST.`}
+          <span className="block text-sm text-neutral-800 lg:text-base tracking-wider uppercase font-medium">
+            {getLabel("404.label")}
           </span>
           <div className="flex justify-center">
             <Link

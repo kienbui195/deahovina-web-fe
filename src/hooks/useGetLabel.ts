@@ -1,18 +1,21 @@
 import { RootState } from "@/lib/store";
-import * as React from "react";
+import { vi } from "@/locales/vi";
 import { useSelector } from "react-redux";
 
+type TKeyOfLabel = (typeof vi)[number]["key"];
+
 const useGetLabel = () => {
-  const labelLang = useSelector((state: RootState) => state.contentLang.content);
+  const labelLang = useSelector(
+    (state: RootState) => state.contentLang.content
+  );
 
-  const getLabel = (key: string): string => {
-    return `${labelLang.find((content) => content.key === key)?.content || undefined
-      }`;
-
-    // return 'test'
+  const getLabel = (key: TKeyOfLabel): string | undefined => {
+    return `${
+      labelLang.find((content) => content.key === key)?.content ?? undefined
+    }`;
   };
 
-  return { getLabel }
+  return { getLabel };
 };
 
-export default useGetLabel
+export default useGetLabel;

@@ -1,3 +1,5 @@
+'use client'
+
 import useGetLabel from "@/hooks/useGetLabel";
 import { BGPinSun, BGPinSun2, BGSolar, BGWindPower } from "@/lib/svgExport";
 import { cn } from "@/lib/utils";
@@ -38,23 +40,28 @@ const SectionSolution = () => {
   const { getLabel } = useGetLabel();
   const divRef = React.useRef<HTMLDivElement>(null);
   const [itemH, setItemH] = React.useState(0);
+  const isClient = React.useMemo(() => typeof window === 'object', [])
+  const mediaWidth = isClient ? window.innerWidth : 0
 
   React.useEffect(() => {
+    if (!isClient) return
+
     const handleSetSize = () => {
       if (!divRef.current) return;
       setItemH(divRef.current.getBoundingClientRect().height);
     };
 
     handleSetSize();
+    if (mediaWidth < 768) handleSetSize()
     document.addEventListener("resize", handleSetSize);
 
     return () => {
       document.removeEventListener("resize", handleSetSize);
     };
-  }, [divRef.current]);
+  }, [divRef.current, isClient, mediaWidth]);
 
   return (
-    <section className="w-full bg-white h-auto mt-1">
+    <section className="w-full bg-white h-auto mt-10">
       <div className="relative bg-white">
         <Image
           alt=""

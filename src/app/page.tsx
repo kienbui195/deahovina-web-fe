@@ -19,7 +19,7 @@ const IndexPage = () => {
       <Button
         size={"icon"}
         onClick={onScrollToTop}
-        className="fixed bottom-10 right-10 font-bold rounded-full border z-20 bg-slate-100 hover:bg-slate-200 text-black"
+        className="fixed sm:bottom-10 sm:right-10 bottom-4 right-4 font-bold rounded-full border z-20 bg-slate-100 hover:bg-slate-200 text-black"
       >
         <ArrowUp className="w-6 h-6" />
       </Button>

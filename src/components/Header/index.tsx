@@ -17,21 +17,23 @@ import { useRouter } from "next/navigation";
 const Header = () => {
   const isNearTop = useIsAtTop();
   const isScrollDown = useScrollDirection();
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <header
       className={cn([
         !isNearTop
-          ? "fixed h-[70px] transition-all duration-200"
-          : "static h-[90px] transition-all duration-200",
+          ? "fixed transition-all duration-200"
+          : "static transition-all duration-200",
         " top-0 left-0 right-0 z-40",
-      ])}>
+      ])}
+    >
       <div
         className={cn([
           "w-full bg-blue-700 h-10 transition-all duration-200 items-end !hidden lg:!flex",
           !isScrollDown && isNearTop ? "flex" : "hidden",
-        ])}>
+        ])}
+      >
         <div className="sm:dhv-container dhv-container-sm flex flex-row justify-end items-center gap-2 w-full text-white text-xs">
           <div className="flex items-center gap-2">
             <Phone className="w-4 h-4" />
@@ -40,7 +42,8 @@ const Header = () => {
           <div className="h-full w-1 bg-white"></div>
           <Link
             href={`mailto:daehovina@gmail.com`}
-            className="flex items-center gap-2">
+            className="flex items-center gap-2"
+          >
             <Mail className="w-4 h-4" />
             <div>daehovina@gmail.com</div>
           </Link>
@@ -78,7 +81,7 @@ const Header = () => {
             width={0}
             height={0}
             sizes="100vw"
-            onClick={() => router.push('/')}
+            onClick={() => router.push("/")}
           />
           <MenuNavigation />
           <div className="lg:hidden flex">

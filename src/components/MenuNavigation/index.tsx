@@ -59,13 +59,13 @@ const MenuNavigation = ({
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        {/* <NavigationMenuItem>
-          <Link href={"/#"}>
+        <NavigationMenuItem>
+          <Link href={"/products"}>
             <NavigationMenuLink className="uppercase font-semibold">
               {getLabel("navigation.products.label")}
             </NavigationMenuLink>
           </Link>
-        </NavigationMenuItem> */}
+        </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="uppercase font-semibold p-0 text-md hover:!bg-transparent">
             {getLabel("navigation.solutions.label")}

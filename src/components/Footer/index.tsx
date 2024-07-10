@@ -25,13 +25,17 @@ import { cn } from "@/lib/utils";
 
 const Footer = () => {
   const { getLabel } = useGetLabel();
-  const locale = useSelector((state: RootState) => state.contentLang.lang);
   const router = useRouter();
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
-    <footer className="bg-blue-700 text-md mt-[30px]">
-      <div className={cn(["h-14 bg-blue-200 shadow-inner border-t content-center"], pathname.includes('contact-us') && 'hidden')}>
+    <footer className="bg-blue-700 text-md mt-[30px] flex flex-col gap-6">
+      <div
+        className={cn(
+          ["h-14 bg-blue-200 shadow-inner border-t content-center"],
+          pathname.includes("contact-us") && "hidden"
+        )}
+      >
         <div className="font-bold container flex justify-between items-center">
           <div>DEAHO VINA</div>
           <Button
@@ -42,7 +46,7 @@ const Footer = () => {
           </Button>
         </div>
       </div>
-      <div className="flex md:flex-row flex-wrap flex-col gap-4 justify-between lg:dhv-container dhv-container-sm pt-10">
+      <div className="flex md:flex-row flex-wrap flex-col gap-4 justify-between lg:dhv-container dhv-container-sm py-10">
         <div className="flex-2 text-white font-semibold mb-[28px] text-sm max-w-[500px] text-wrap">
           <div className="flex flex-row gap-6">
             <Image

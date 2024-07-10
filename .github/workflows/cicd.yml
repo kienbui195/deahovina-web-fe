@@ -24,7 +24,7 @@ jobs:
             git pull origin dev
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh  
-            npm install
+            npm install --force
             rm -rf .env
             echo "NEXT_PUBLIC_BE_API=https://admin.kiendev.click/api" >> .env
             echo "NEXT_PUBLIC_BE=https://admin.kiendev.click" >> .env

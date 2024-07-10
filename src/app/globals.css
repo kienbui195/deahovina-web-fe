@@ -82,12 +82,5 @@
       @apply bg-background text-foreground;
     }
 
-    .dhv-container {
-      max-width: 1350px;
-      margin: auto;
-    }
-    
-    .dhv-container-sm {
-      padding: 0 8px;
-    }
+
   }
