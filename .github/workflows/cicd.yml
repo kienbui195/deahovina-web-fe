@@ -21,6 +21,9 @@ jobs:
             eval "$(ssh-agent -s)"
             ssh-add ~/.ssh/github_key
             git checkout .
+            git status
+            git clean -df
+            git checkout dev
             git pull origin dev
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh  
