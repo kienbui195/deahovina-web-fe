@@ -31,7 +31,6 @@ const ProductGroupByCategory = ({ params }: { params: { slug: string } }) => {
     thumbnail: "",
   });
   const router = useRouter();
-  const { showError } = useShowErrorMessage();
 
   const handleGetProdsGroupByBrand = () => {
     apis
@@ -68,7 +67,7 @@ const ProductGroupByCategory = ({ params }: { params: { slug: string } }) => {
         setProds(list);
       })
       .catch((err) => {
-        showError("");
+        useShowErrorMessage("");
       });
   };
 
@@ -101,7 +100,7 @@ const ProductGroupByCategory = ({ params }: { params: { slug: string } }) => {
         });
       })
       .catch((err) => {
-        showError("");
+        useShowErrorMessage("");
       });
   };
 
