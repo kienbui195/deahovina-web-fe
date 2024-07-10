@@ -2,6 +2,7 @@
 
 import apis from "@/apis";
 import ProductCard from "@/app/products/(components)/ProductCard";
+import { IProductState } from "@/app/products/[slug]/ProductDetail";
 import {
   Carousel,
   CarouselContent,
@@ -19,10 +20,17 @@ import { useRouter } from "next/navigation";
 import * as React from "react";
 import { useSelector } from "react-redux";
 
+export interface IGroupedProducts {
+  brandName: "related-articles" | string;
+  products?: IProductState[];
+}
+
 const ProductGroupByCategory = ({ params }: { params: { slug: string } }) => {
   const { getLabel } = useGetLabel();
   const locale = useSelector((state: RootState) => state.contentLang.lang);
-  const [prods, setProds] = React.useState<any>({});
+  const [groupProductsByBrands, setGroupProductsByBrands] = React.useState<
+    IGroupedProducts[]
+  >([]);
   const [cate, setCate] = React.useState({
     id: 0,
     name: "",
@@ -54,19 +62,28 @@ const ProductGroupByCategory = ({ params }: { params: { slug: string } }) => {
           locale,
           pagination: {
             page: 1,
-            pageSize: 100,
+            pageSize: 1000,
           },
         })
       )
       .then((res) => {
-        const { data } = res.data;
+        const data: IProductState[] = res.data.data;
         const list = Object.groupBy(
           data,
-          (item: any) => item.attributes.product_brand.data.attributes.name
+          (item: IProductState) =>
+            item.attributes.product_brand?.data?.attributes.name ||
+            "related-articles"
         );
-        setProds(list);
+        const transformedData: IGroupedProducts[] = Object.entries(list).map(
+          ([brandName, products]) => ({
+            brandName,
+            products,
+          })
+        );
+        setGroupProductsByBrands(transformedData);
       })
       .catch((err) => {
+        console.log(err);
         useShowErrorMessage("");
       });
   };
@@ -119,34 +136,36 @@ const ProductGroupByCategory = ({ params }: { params: { slug: string } }) => {
           width={0}
           height={0}
           sizes="100vw"
-          className="object-cover w-full sm:w-[600px] h-auto"
+          className="object-cover w-[500px] sm:w-[1000px] h-[300px]"
         />
       </div>
 
       <div className="my-10">
-        {Object.keys(prods).length > 0 ? (
-          Object.keys(prods).map((item, idx) => (
+        {groupProductsByBrands.length > 0 ? (
+          groupProductsByBrands.map(({ brandName, products }, idx) => (
             <div key={idx} className="flex flex-col gap-6">
-              <div className="bg-orange-600 text-black font-bold text-lg">
-                {item}
+              <div className="bg-amber-500 text-black font-bold text-lg sm:text-xl pl-2 border-b border-black">
+                {brandName === "related-articles"
+                  ? `${getLabel("category.related-articles")} ${cate.name}`
+                  : brandName}
               </div>
               <Carousel>
                 <CarouselContent>
-                  {Array.from(prods[item as string]).length > 0 ? (
-                    Array.from(prods[item as string]).map(
-                      (_item: any, _idx: number) => (
-                        <CarouselItem key={_idx} className="sm:basis-1/3">
-                          <ProductCard
-                            key={_idx}
-                            slug={_item.attributes.slug}
-                            title={_item.attributes.title}
-                            thumbnail={
-                              _item.attributes.thumbnail?.data?.attributes.url
-                            }
-                          />
-                        </CarouselItem>
-                      )
-                    )
+                  {products && products.length > 0 ? (
+                    products.map((_item, _idx) => (
+                      <CarouselItem
+                        key={_idx}
+                        className="basis-[85%] sm:basis-[30%]">
+                        <ProductCard
+                          key={_idx}
+                          slug={_item.attributes.slug}
+                          title={_item.attributes.title}
+                          thumbnail={
+                            _item.attributes.thumbnail.data?.attributes.url
+                          }
+                        />
+                      </CarouselItem>
+                    ))
                   ) : (
                     <div className="w-full text-center">
                       {getLabel("product.content.empty")}

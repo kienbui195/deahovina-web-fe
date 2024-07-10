@@ -2,7 +2,7 @@
 
 import apis from "@/apis";
 import useGetLabel from "@/hooks/useGetLabel";
-import { getImageURL } from "@/lib/function";
+import { getFileURL, getImageURL } from "@/lib/function";
 import { cn, createQuery } from "@/lib/utils";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -27,11 +27,11 @@ export interface IProductState {
     createdAt?: Date;
     updatedAt?: Date;
     desc?: string;
-    thumbnail?: {
+    thumbnail: {
       data?: IImage;
     };
     category?: {
-      data: {
+      data?: {
         id: number;
         attributes: {
           name: string;
@@ -49,7 +49,7 @@ export interface IProductState {
       };
     };
     product_brand?: {
-      data: {
+      data?: {
         id: number;
         attributes: {
           name: string;
@@ -63,6 +63,45 @@ export interface IProductState {
               };
             };
           };
+        };
+      };
+    };
+    attach_file_vi?: {
+      data?: {
+        id: number;
+        attributes: {
+          alternativeText?: string;
+          caption?: string;
+          ext: string;
+          mime: string;
+          name: string;
+          url: string;
+        };
+      };
+    };
+    attach_file_en?: {
+      data?: {
+        id: number;
+        attributes: {
+          alternativeText?: string;
+          caption?: string;
+          ext: string;
+          mime: string;
+          name: string;
+          url: string;
+        };
+      };
+    };
+    attach_file_kr?: {
+      data?: {
+        id: number;
+        attributes: {
+          alternativeText?: string;
+          caption?: string;
+          ext: string;
+          mime: string;
+          name: string;
+          url: string;
         };
       };
     };
@@ -127,6 +166,9 @@ export default function ProductDetail({
           },
         },
       },
+      attach_file_vi: {},
+      attach_file_en: {},
+      attach_file_kr: {},
       updatedAt: undefined,
     },
   });
@@ -161,6 +203,9 @@ export default function ProductDetail({
                   },
                 },
               },
+              attach_file_vi: "*",
+              attach_file_en: "*",
+              attach_file_kr: "*",
             },
             filters: {
               slug: productSlug,
@@ -189,53 +234,103 @@ export default function ProductDetail({
     <div className="lg:dhv-container dhv-container-sm">
       {/* TODO: product_info  */}
       <div className="mt-10 flex flex-col gap-10">
-        <div className="sm:text-3xl text-lg font-bold ">
+        <div className="sm:text-3xl text-lg font-bold">
           {product.attributes.title}
         </div>
         {product.attributes.desc && product.attributes.desc.trim() !== "" && (
-          <div>{product.attributes.desc}</div>
+          <div className="sm:text-3xl text-lg font-bold">
+            {product.attributes.desc}
+          </div>
         )}
+        <div className="flex flex-col space-y-3">
+          {product.attributes.attach_file_vi?.data && (
+            <a
+              className="cursor-pointer text-blue-800 font-bold text-sm md:text-lg"
+              href={getFileURL(
+                product.attributes.attach_file_vi?.data.attributes.url
+              )}
+              target="_blank">
+              {`===>> Download ${
+                product.attributes.attach_file_vi?.data.attributes.name
+              } (${getLabel("product.content.download-vi")})`}
+            </a>
+          )}
+          {product.attributes.attach_file_en?.data && (
+            <a
+              className="cursor-pointer text-blue-800 font-bold text-sm md:text-lg"
+              href={getFileURL(
+                product.attributes.attach_file_en?.data.attributes.url
+              )}
+              target="_blank">
+              {`===>> Download ${
+                product.attributes.attach_file_en?.data.attributes.name
+              } (${getLabel("product.content.download-en")})`}
+            </a>
+          )}
+          {product.attributes.attach_file_kr?.data && (
+            <a
+              className="cursor-pointer text-blue-800 font-bold text-sm md:text-lg"
+              href={getFileURL(
+                product.attributes.attach_file_kr?.data.attributes.url
+              )}
+              target="_blank">
+              {`===>> Download ${
+                product.attributes.attach_file_kr?.data.attributes.name
+              } (${getLabel("product.content.download-kr")})`}
+            </a>
+          )}
+        </div>
         <div
           className=""
-          dangerouslySetInnerHTML={{ __html: product.attributes.content ?? "" }}
-        ></div>
+          dangerouslySetInnerHTML={{
+            __html: product.attributes.content ?? "",
+          }}></div>
       </div>
       {/* TODO: brand_info */}
-      <div className="mt-20">
-        <div className="sm:text-2xl text-lg font-bold">
-          {`${getLabel("product.content.brand.label")} ${
-            product.attributes.product_brand?.data.attributes.name
-          }`}
+      {product.attributes.product_brand?.data && (
+        <div className="mt-20">
+          <div className="sm:text-2xl text-lg font-bold">
+            {`${getLabel("product.content.brand.label")} ${
+              product.attributes.product_brand.data.attributes.name
+            }`}
+          </div>
+          {product.attributes.product_brand &&
+            product.attributes.product_brand.data.attributes.logo && (
+              <div className="flex justify-center items-center">
+                <Image
+                  alt=""
+                  src={getImageURL(
+                    product.attributes.product_brand.data.attributes.logo.data
+                      ?.attributes.url
+                  )}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="mt-10 object-cover w-3/5 h-auto"
+                />
+              </div>
+            )}
+          <div className="mt-10">
+            {product.attributes.product_brand.data.attributes.desc}
+          </div>
+          <div
+            className="mt-10"
+            dangerouslySetInnerHTML={{
+              __html: product.attributes.product_brand.data.attributes.desc ?? "",
+            }}></div>
         </div>
-        {product.attributes.product_brand &&
-          product.attributes.product_brand.data?.attributes.logo && (
-            <Image
-              alt=""
-              src={getImageURL(
-                product.attributes.product_brand.data?.attributes.logo.data
-                  ?.attributes.url
-              )}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="object-cover w-full h-auto"
-            />
-          )}
-        <div className="mt-10">
-          {product.attributes.product_brand?.data.attributes.desc}
-        </div>
-        <div
-          className="mt-10"
-          dangerouslySetInnerHTML={{ __html: product.attributes.content ?? "" }}
-        ></div>
-      </div>
+      )}
       {/* TODO: category */}
-      <div className="mt-20">
-        <SameCate
-          cateSlug={product.attributes.category?.data.attributes.slug as string}
-          withoutProductId={product.id}
-        />
-      </div>
+      {product.attributes.category?.data && (
+        <div className="mt-20">
+          <SameCate
+            cateSlug={
+              product.attributes.category.data.attributes.slug as string
+            }
+            withoutProductId={product.id}
+          />
+        </div>
+      )}
     </div>
   );
 }

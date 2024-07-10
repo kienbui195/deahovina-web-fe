@@ -83,7 +83,7 @@ const ShowProdByCate = ({
   }, [locale]);
 
   return (
-    <section className="w-full flex flex-col gap-4 mb-20">
+    <section className="w-full flex flex-col space-y-10 mb-20">
       <div className="flex sm:flex-row flex-col sm:justify-between items-center sm:px-10 px-2">
         <div className="text-lg sm:text-3xl font-bold">{cateName}</div>
         <Image
@@ -95,7 +95,7 @@ const ShowProdByCate = ({
           sizes="100vw"
         />
       </div>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 relative">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-16 relative">
         {prods.length > 0 ? (
           prods.map((prod, idx) => (
             <ProductCard

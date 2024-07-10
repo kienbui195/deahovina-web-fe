@@ -13,11 +13,13 @@ import { Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import MenuNavigation from "../MenuNavigation";
 import { useRouter } from "next/navigation";
+import useGetLabel from "@/hooks/useGetLabel";
 
 const Header = () => {
   const isNearTop = useIsAtTop();
   const isScrollDown = useScrollDirection();
   const router = useRouter();
+  const { getLabel } = useGetLabel()
 
   return (
     <header
@@ -30,14 +32,14 @@ const Header = () => {
     >
       <div
         className={cn([
-          "w-full bg-blue-700 h-10 transition-all duration-200 items-end !hidden lg:!flex",
+          "w-full bg-blue-700 h-10 transition-all duration-200 items-end !hidden sm:!flex",
           !isScrollDown && isNearTop ? "flex" : "hidden",
         ])}
       >
         <div className="sm:dhv-container dhv-container-sm flex flex-row justify-end items-center gap-2 w-full text-white text-xs">
           <div className="flex items-center gap-2">
             <Phone className="w-4 h-4" />
-            <div>0222 3903 996</div>
+            <div>{getLabel("top-header.phone-number")}</div>
           </div>
           <div className="h-full w-1 bg-white"></div>
           <Link

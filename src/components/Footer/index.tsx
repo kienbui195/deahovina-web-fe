@@ -16,9 +16,6 @@ import {
   Phone,
   Youtube,
 } from "lucide-react";
-
-import { useSelector } from "react-redux";
-import { RootState } from "@/lib/store";
 import MenuNavigation from "../MenuNavigation";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";

@@ -350,4 +350,24 @@ export const en: IMultiLangContentValue[] = [
     key: "error.message",
     content: "Something went wrong! Please try again later!",
   },
+  {
+    key: "top-header.phone-number",
+    content: "+84(VN)965-058-521",
+  },
+  {
+    key: "product.content.download-vi",
+    content: "Vietnamese Version",
+  },
+  {
+    key: "product.content.download-en",
+    content: "English Version",
+  },
+  {
+    key: "product.content.download-kr",
+    content: "Korean Version",
+  },
+  {
+    key: "category.related-articles",
+    content: "Related Articles",
+  },
 ];

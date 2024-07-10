@@ -69,10 +69,10 @@ const IndexPage = () => {
   React.useEffect(() => {
     handleGetAllCate(1);
   }, [locale]);
-
+  
   return (
     <section className=" md:dhv-container dhv-container-sm flex flex-col gap-6">
-      {categories.length > 1 ? (
+      {categories.length > 0 ? (
         categories.map((_item, _idx) => (
           <ShowProdByCate
             cateName={_item.name}

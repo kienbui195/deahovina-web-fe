@@ -365,4 +365,24 @@ export const kr: IMultiLangContentValue[] = [
     key: "error.message",
     content: "문제가 발생했습니다. 나중에 다시 시도 해주십시오!",
   },
+  {
+    key: "top-header.phone-number",
+    content: "+82(KR)10-3145-0717",
+  },
+  {
+    key: "product.content.download-vi",
+    content: "베트남어 버전",
+  },
+  {
+    key: "product.content.download-en",
+    content: "위원회 영어",
+  },
+  {
+    key: "product.content.download-kr",
+    content: "한국어 버전",
+  },
+  {
+    key: "category.related-articles",
+    content: "관련 기사",
+  },
 ];

@@ -14,3 +14,7 @@ export const getImageURL = (url?: string): string | StaticImport => {
       : `${process.env.NEXT_PUBLIC_BE}${url}`
     : DefaultThumbnail2;
 };
+
+export const getFileURL = (url: string): string => {
+  return url.includes("https") ? url : `${process.env.NEXT_PUBLIC_BE}${url}`;
+};

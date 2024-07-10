@@ -363,4 +363,24 @@ export const vi: IMultiLangContentValue[] = [
     key: "error.message",
     content: "Đã xảy ra lỗi! Vui lòng thử lại sau!",
   },
+  {
+    key: "top-header.phone-number",
+    content: "+84(VN)965-058-521",
+  },
+  {
+    key: "product.content.download-vi",
+    content: "Bản tiếng Việt",
+  },
+  {
+    key: "product.content.download-en",
+    content: "Bản tiếng Anh",
+  },
+  {
+    key: "product.content.download-kr",
+    content: "Bản tiếng Hàn",
+  },
+  {
+    key: "category.related-articles",
+    content: "Bài viết liên quan",
+  },
 ];

@@ -47,7 +47,7 @@ const MenuNavigation = ({
       },
     ];
   }, [lang]);
-  const [collapSolutions, setCollapSolution] = React.useState<boolean>(false);
+  const [collapSolutions, setCollapseSolution] = React.useState<boolean>(false);
 
   return direction === "horizontal" ? (
     <NavigationMenu className="md:flex-wrap md:flex hidden">
@@ -110,13 +110,13 @@ const MenuNavigation = ({
       <Link href={"/"} className="py-2 block w-fit">
         {getLabel("navigation.home.label")}
       </Link>
-      <Link href={"/#"} className="py-2 block w-fit">
+      <Link href={"/products"} className="py-2 block w-fit">
         {getLabel("navigation.products.label")}
       </Link>
       <Collapsible
         open={collapSolutions}
         onOpenChange={(val) => {
-          setCollapSolution(val);
+          setCollapseSolution(val);
         }}
       >
         <CollapsibleTrigger asChild>
