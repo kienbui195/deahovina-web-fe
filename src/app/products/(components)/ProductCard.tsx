@@ -23,7 +23,7 @@ const ProductCard = ({
         width={0}
         height={0}
         sizes="100vw"
-        className="object-contain w-full h-[150px] transform transition-all duration-200 hover:scale-90 active:scale-90"
+        className="object-contain w-full h-auto transform transition-all duration-200 hover:scale-90 active:scale-90"
       />
       <Link
         href={`/products/${slug}`}
